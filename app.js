@@ -315,6 +315,18 @@ const GUIDE_CATEGORIES = [{
   name: 'Tags, Prefix and Glow',
   icon: 'Wand'
 }, {
+  id: 'warps',
+  name: 'Warps',
+  icon: 'Map'
+}, {
+  id: 'bounty',
+  name: 'Bounty',
+  icon: 'Trophy'
+}, {
+  id: 'discord-link',
+  name: 'Discord Link',
+  icon: 'Discord'
+}, {
   id: 'ranks-free',
   name: 'Free Ranks',
   icon: 'Shield'
@@ -1401,7 +1413,7 @@ const GUIDES = {
       body: /*#__PURE__*/React.createElement("p", null, "Open ", /*#__PURE__*/React.createElement("code", null, "/stash"), " to see everything that has piled up. The GUI is sized dynamically based on how many items are in there. Click any item to send it to your inventory. If your inventory is still full it tells you on the actionbar and the item stays in the stash.")
     }, {
       h: 'Bulk Pickup',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/pickupstash"), " to grab everything from the stash at once. Anything that does not fit stays put. This is the fastest way to clear the stash after an AFK mining session.")
+      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/pickupstash"), " to grab everything from the stash at once. Anything that does not fit stays put. This is the fastest way to clear the stash after a long mining session.")
     }]
   },
   'keys-shop': {
@@ -1420,7 +1432,7 @@ const GUIDES = {
     intro: 'Weekly stats that decide the weekly competition.',
     sections: [{
       h: 'The Four Stats',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Blocks Mined"), " counts ores, logs, stone, deepslate and dimensional decoration blocks"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Player Kills"), " counts PvP kills"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Playtime"), " ticks up every 5 minutes for every online player so AFK time counts"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Bosses Killed"), " counts every boss kill across every dimension"))
+      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Blocks Mined"), " counts ores, logs, stone, deepslate and dimensional decoration blocks"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Player Kills"), " counts PvP kills"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Playtime"), " ticks up every 5 minutes for every online player"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Bosses Killed"), " counts every boss kill across every dimension"))
     }, {
       h: 'Weekly Reset',
       body: /*#__PURE__*/React.createElement("p", null, "The board resets on a schedule with a server wide broadcast. Top spots win the weekly competition reward when the staff runs one.")
@@ -1437,7 +1449,7 @@ const GUIDES = {
       body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/options"), " or ", /*#__PURE__*/React.createElement("code", null, "/settings"), " or ", /*#__PURE__*/React.createElement("code", null, "/setting"), ". The menu uses lime panes for enabled and red panes for disabled. Click any pane to flip it.")
     }, {
       h: 'What You Can Toggle',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "PvP"), " on or off. Off makes you immune to other players damage"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "XP gain sounds")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Full inventory warning")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Server broadcasts")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Item drops"), " on death"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "AFK reward messages")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Prestige messages")))
+      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "PvP"), " on or off. Off makes you immune to other players damage"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "XP gain sounds")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Full inventory warning")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Server broadcasts")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Item drops"), " on death"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Prestige messages")))
     }, {
       h: 'Settings Stick',
       body: /*#__PURE__*/React.createElement("p", null, "Every toggle saves to your account so your preferences carry across sessions. The settings only affect your own client. Turning off broadcasts mutes them for you. Turning off PvP makes you untouchable to players.")
@@ -1455,6 +1467,48 @@ const GUIDES = {
     }, {
       h: 'Glow',
       body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Glow puts a colored outline around your player model so other players can see your silhouette through walls. Each color is tied to a permission you earn through ranks or the store."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Yellow"), " VIP"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Aqua"), " MVP"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Red"), " Immortal"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Green"), " Primal"), /*#__PURE__*/React.createElement("li", null, "Extras for store bundles: white, blue, orange, gray and purple")), /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/glow color"), " where color is the one you want. The change is instant. Bare ", /*#__PURE__*/React.createElement("code", null, "/glow"), " opens a small menu shell but most players just type the color directly."))
+    }]
+  },
+  'warps': {
+    title: 'Warps',
+    intro: 'Your shortcut to every dimension and key location.',
+    sections: [{
+      h: 'Opening the Menu',
+      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/warps"), " to open the warp GUI. The menu lists every dimension you can travel to plus key locations like crates and leaderboards."), /*#__PURE__*/React.createElement("p", null, "You can also type ", /*#__PURE__*/React.createElement("code", null, "/spawn"), " to jump back to the hub at any time or ", /*#__PURE__*/React.createElement("code", null, "/warp name"), " to skip the menu."))
+    }, {
+      h: 'What is Open to You',
+      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Spawn"), " the hub. Always open."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Cave"), ", ", /*#__PURE__*/React.createElement("strong", null, "Nether"), ", ", /*#__PURE__*/React.createElement("strong", null, "End"), ", ", /*#__PURE__*/React.createElement("strong", null, "Aether"), ", ", /*#__PURE__*/React.createElement("strong", null, "Abyss"), " the main mining dimensions. All open to everyone."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Deepdark"), " requires Prestige 1 to enter"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Rank mines"), " (VIP, MVP, Elite, Mythic, Primal) require the matching purchased rank"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Crates"), " and ", /*#__PURE__*/React.createElement("strong", null, "Leaderboards"), " shortcuts to those zones at spawn"))
+    }]
+  },
+  'bounty': {
+    title: 'Bounty',
+    intro: 'Put a price on someones head. Cash in when they die.',
+    sections: [{
+      h: 'Placing a Bounty',
+      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/bounty add player amount"), " to put a price on a target. The money leaves your balance immediately and rides on that player until somebody kills them in PvP."), /*#__PURE__*/React.createElement("p", null, "Multiple players can stack bounties on the same target. The pool keeps growing until the target dies."))
+    }, {
+      h: 'Claiming a Bounty',
+      body: /*#__PURE__*/React.createElement("p", null, "When the bounty target dies to another player the full pot goes to the killer and the server broadcasts the payout. The bounty resets to zero. The target can play their way back into the danger zone if anyone places a new one.")
+    }, {
+      h: 'Checking the Price',
+      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/bounty check player"), " to see how much is currently on that player. There is no cap so a slippery target can become a moving jackpot.")
+    }]
+  },
+  'discord-link': {
+    title: 'Discord Link',
+    intro: 'Connect your Minecraft and Discord accounts. Get rewarded.',
+    sections: [{
+      h: 'How to Link',
+      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/link"), " in game to get a 6 character code. Open the PrimalMines Discord. Click the Link Account button and paste the code. Rejoin the server."), /*#__PURE__*/React.createElement("p", null, "The first time you link you receive $10,000 plus 3 Rare Pet Keys."))
+    }, {
+      h: 'Claim Reward Later',
+      body: /*#__PURE__*/React.createElement("p", null, "If your inventory was full when you joined after linking, the reward will be waiting. Type ", /*#__PURE__*/React.createElement("code", null, "/claimreward"), " to grab it.")
+    }, {
+      h: 'Unlinking',
+      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/unlink"), " to remove the link. You can re-link any time but the first time reward only pays out once.")
+    }, {
+      h: 'Why Link',
+      body: /*#__PURE__*/React.createElement("p", null, "Linking unlocks Discord-only announcements, sync of your rank tag between Minecraft and Discord and access to gated channels. Some seasonal rewards drop only to linked accounts.")
     }]
   }
 };
