@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PRIMALMINES // Skymining Server</title>
+<meta name="description" content="PrimalMines. A skymining server with deep progression, custom bosses, story driven quests and 117 collectible pets. play.primalmines.net" />
+
+<link rel="icon" type="image/png" href="server-icon.png" />
+<link rel="apple-touch-icon" href="server-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800;10..48,900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          acid:  { 50:'#f0fff5', 100:'#d5ffe0', 200:'#a5ffb8', 300:'#6dff85', 400:'#3dff5b', 500:'#13e544', 600:'#0cb938', 700:'#098f2c', 800:'#076921', 900:'#054718' },
+          bg:    { base:'#040806', 1:'#06100a', 2:'#0a1a10', 3:'#102218', 4:'#162e1f' },
+          paper: { 0:'#f8fff5', 1:'#dde8de', 2:'#a5b6a8' }
+        },
+        fontFamily: {
+          sans:    ['Inter','system-ui','sans-serif'],
+          display: ['Bricolage Grotesque','Inter','sans-serif'],
+          serif:   ['Instrument Serif','Georgia','serif'],
+          mono:    ['JetBrains Mono','monospace']
+        }
+      }
+    }
+  };
+</script>
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="bg-base"></div>
+<div class="bg-lines"></div>
+<div class="bg-noise"></div>
+
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
