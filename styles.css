@@ -281,6 +281,7 @@
   .term-tag-rare     { color: #74c0ff; }
   .term-tag-uncommon { color: #a5ffb1; }
   .term-tag-common   { color: #a5b6a8; }
+  .term-tag-myth     { color: #ff9fbf; }
 
   /* Pet showcase grid */
   .pet-stack {

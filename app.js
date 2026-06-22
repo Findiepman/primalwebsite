@@ -256,12 +256,16 @@ const GUIDE_CATEGORIES = [{
   icon: 'Compass'
 }, {
   id: 'mining-fortune',
-  name: 'Mining and Fortune',
+  name: 'Mining, Fortune and Compression',
   icon: 'Pickaxe'
 }, {
   id: 'levels-xp',
   name: 'Levels and XP',
   icon: 'Bolt'
+}, {
+  id: 'skills',
+  name: 'Skills',
+  icon: 'Star'
 }, {
   id: 'prestige',
   name: 'Prestige',
@@ -272,8 +276,12 @@ const GUIDE_CATEGORIES = [{
   icon: 'Paw'
 }, {
   id: 'bosses',
-  name: 'Bosses',
+  name: 'Slayer System',
   icon: 'Trophy'
+}, {
+  id: 'forge',
+  name: 'The Forge',
+  icon: 'Wand'
 }, {
   id: 'quests',
   name: 'Quests',
@@ -283,24 +291,32 @@ const GUIDE_CATEGORIES = [{
   name: 'Mining Events',
   icon: 'Sparkle'
 }, {
-  id: 'skills',
-  name: 'Skills',
-  icon: 'Star'
-}, {
-  id: 'daily-rewards',
-  name: 'Daily Rewards',
-  icon: 'Sparkle'
-}, {
   id: 'economy',
   name: 'Economy and Cash Notes',
   icon: 'Gem'
 }, {
-  id: 'stash',
-  name: 'Stash',
-  icon: 'Cube'
-}, {
   id: 'keys-shop',
   name: 'Keys Shop',
+  icon: 'Cube'
+}, {
+  id: 'crates',
+  name: 'Crates',
+  icon: 'Cube'
+}, {
+  id: 'shops',
+  name: 'Shops and Trading',
+  icon: 'Store'
+}, {
+  id: 'coinflip',
+  name: 'Coinflip',
+  icon: 'Sparkle'
+}, {
+  id: 'daily-rewards',
+  name: 'Daily and Playtime Rewards',
+  icon: 'Sparkle'
+}, {
+  id: 'stash',
+  name: 'Storage and Stash',
   icon: 'Cube'
 }, {
   id: 'leaderboards',
@@ -312,20 +328,12 @@ const GUIDE_CATEGORIES = [{
   icon: 'Shield'
 }, {
   id: 'cosmetics',
-  name: 'Tags, Prefix and Glow',
+  name: 'Tags and Prefix',
   icon: 'Wand'
 }, {
   id: 'warps',
-  name: 'Warps',
+  name: 'Warps and Dimensions',
   icon: 'Map'
-}, {
-  id: 'bounty',
-  name: 'Bounty',
-  icon: 'Trophy'
-}, {
-  id: 'discord-link',
-  name: 'Discord Link',
-  icon: 'Discord'
 }, {
   id: 'ranks-free',
   name: 'Free Ranks',
@@ -339,6 +347,10 @@ const GUIDE_CATEGORIES = [{
   name: 'Custom Enchants',
   icon: 'Wand'
 }, {
+  id: 'discord-link',
+  name: 'Discord Link',
+  icon: 'Discord'
+}, {
   id: 'store-info',
   name: 'Store',
   icon: 'Store'
@@ -350,7 +362,7 @@ const GUIDE_CATEGORIES = [{
 const PETS = [{
   name: "Zombie",
   rarity: "Common",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+4 max health"]
 }, {
   name: "Rat",
@@ -360,7 +372,7 @@ const PETS = [{
 }, {
   name: "Turtle",
   rarity: "Common",
-  ability: "Grants Resistance VI. Drawback Slowness IV.",
+  ability: "Grants Resistance VI. Drawback: Slowness IV.",
   stats: []
 }, {
   name: "Lizard",
@@ -370,7 +382,7 @@ const PETS = [{
 }, {
   name: "Snail",
   rarity: "Common",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+0.1 knockback resistance"]
 }, {
   name: "Chicken",
@@ -385,22 +397,22 @@ const PETS = [{
 }, {
   name: "Bat",
   rarity: "Common",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+0.2 attack speed"]
 }, {
   name: "Bee",
   rarity: "Common",
-  ability: "5% chance to gain Regeneration for 3 seconds when hit.",
+  ability: "5% chance on hit to gain Regeneration.",
   stats: []
 }, {
   name: "Pebble Golem",
   rarity: "Common",
-  ability: "Grants Resistance when standing still for 5 seconds.",
+  ability: "Gain Resistance while standing still.",
   stats: ["+2 armor"]
 }, {
   name: "Moth",
   rarity: "Common",
-  ability: "Outlines souls of nearby entities within 20 blocks.",
+  ability: "Outlines nearby entities through walls.",
   stats: []
 }, {
   name: "Duckling",
@@ -410,112 +422,112 @@ const PETS = [{
 }, {
   name: "Porcupine",
   rarity: "Common",
-  ability: "30% chance to ignite attackers for 2 seconds.",
+  ability: "30% chance to ignite attackers.",
   stats: ["+1 armor toughness"]
 }, {
   name: "Caterpillar",
   rarity: "Common",
-  ability: "15% chance on being hit to gain Saturation for 4 seconds.",
+  ability: "15% chance on being hit to gain Saturation.",
   stats: []
 }, {
   name: "Hermit Crab",
   rarity: "Common",
-  ability: "Grants Resistance when standing still for 4 seconds.",
+  ability: "Gain Resistance while standing still.",
   stats: ["+1 armor"]
 }, {
   name: "Golem",
   rarity: "Uncommon",
-  ability: "Grants Resistance III. Drawback Slowness III.",
+  ability: "Grants Resistance III. Drawback: Slowness III.",
   stats: ["+20 max health"]
 }, {
   name: "Mutt",
   rarity: "Uncommon",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+1 attack damage"]
 }, {
   name: "Hamster",
   rarity: "Uncommon",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+5% movement speed"]
 }, {
   name: "Strider",
   rarity: "Uncommon",
-  ability: "Fire immunity. Regenerates health while near lava.",
+  ability: "Grants fire immunity and heals you near lava.",
   stats: []
 }, {
   name: "Arctic Fox",
   rarity: "Uncommon",
-  ability: "15% chance to deep freeze enemies on hit for 3 seconds.",
+  ability: "15% chance to deep-freeze and slow your target.",
   stats: ["+1 attack damage"]
 }, {
   name: "Honey Pot",
   rarity: "Uncommon",
-  ability: "10% chance on being hit to gain Saturation for 5 seconds.",
+  ability: "10% chance on being hit to gain Saturation.",
   stats: []
 }, {
   name: "Alert Dog",
   rarity: "Uncommon",
-  ability: "While sneaking growls when another player enters a 10 block radius.",
+  ability: "Warns you when a player enters a 10-block radius while sneaking.",
   stats: []
 }, {
   name: "Hedgehog",
   rarity: "Uncommon",
-  ability: "Slows attackers in retaliation for 3 seconds.",
+  ability: "Slows attackers when you are hit.",
   stats: ["+1 armor toughness"]
 }, {
   name: "Baby Goat",
   rarity: "Uncommon",
-  ability: "15% chance to launch enemies skyward on hit.",
+  ability: "15% chance to knock enemies skyward.",
   stats: ["+1 attack damage"]
 }, {
   name: "Ferret",
   rarity: "Uncommon",
-  ability: "Bonus Speed while sprinting.",
+  ability: "Grants bonus speed while sprinting.",
   stats: ["+3% movement speed"]
 }, {
   name: "Flamingo",
   rarity: "Uncommon",
-  ability: "Regenerates health while standing in water.",
+  ability: "Regenerates health while you stand in water.",
   stats: []
 }, {
   name: "Meerkat",
   rarity: "Uncommon",
-  ability: "Warns you when hostile mobs come within 12 blocks while sneaking.",
+  ability: "Alerts you when hostile mobs come within 12 blocks.",
   stats: []
 }, {
   name: "Mongoose",
   rarity: "Uncommon",
-  ability: "Grants immunity to Poison.",
+  ability: "Grants poison immunity.",
   stats: []
 }, {
   name: "Lynx",
   rarity: "Uncommon",
-  ability: "Bonus Speed while sneaking.",
+  ability: "Grants bonus speed while sneaking.",
   stats: ["+2% movement speed"]
 }, {
   name: "Axolotl",
   rarity: "Uncommon",
-  ability: "Regenerates health in water. Grants Water Breathing II.",
+  ability: "Strongly regenerates health while submerged plus grants Water Breathing II.",
   stats: []
 }, {
   name: "Platypus",
   rarity: "Uncommon",
-  ability: "20% chance to poison enemies on hit for 4 seconds.",
+  ability: "20% chance to poison the target on hit.",
   stats: []
 }, {
   name: "Panda Cub",
   rarity: "Uncommon",
-  ability: "Heals you when no one is attacking.",
+  ability: "Heals you while no one is attacking.",
   stats: ["+4 max health"]
 }, {
   name: "Armadillo",
   rarity: "Uncommon",
-  ability: "Curls up when hit. Resistance II for 2 seconds.",
+  ability: "Curls up to block damage when hit.",
   stats: ["+2 armor"]
 }, {
   name: "Skeleton",
   rarity: "Rare",
-  ability: "25% chance to fire a double arrow.",
+  ability: "25% chance to fire a second arrow.",
   stats: []
 }, {
   name: "Tiger",
@@ -525,47 +537,47 @@ const PETS = [{
 }, {
   name: "The Third Eye",
   rarity: "Rare",
-  ability: "Grants Night Vision II. Outlines souls within 30 blocks.",
+  ability: "Grants Night Vision II and outlines nearby souls through walls.",
   stats: []
+}, {
+  name: "Blaze",
+  rarity: "Rare",
+  ability: "20% chance to set the target on fire.",
+  stats: ["+15% movement speed"]
 }, {
   name: "Husk",
   rarity: "Rare",
-  ability: "Applies Anti Heal to enemies for 10 seconds.",
+  ability: "Prevents your foes from healing.",
   stats: ["+5 max health"]
 }, {
   name: "Spring Coil",
   rarity: "Rare",
-  ability: "No active ability.",
-  stats: ["+1.0 step height"]
+  ability: "Lets you stride over blocks without jumping.",
+  stats: []
 }, {
   name: "Thimble",
   rarity: "Rare",
-  ability: "5% chance to reflect incoming projectiles.",
+  ability: "5% chance to reflect projectiles back at the shooter.",
   stats: ["+2 armor toughness"]
-}, {
-  name: "Blaze",
-  rarity: "Rare",
-  ability: "20% chance to ignite enemies on hit for 3 seconds.",
-  stats: ["+15% movement speed"]
 }, {
   name: "Tortoise",
   rarity: "Rare",
-  ability: "Resistance while standing still for 5 seconds. Drawback Slowness III.",
+  ability: "Gain Resistance while standing still. Drawback: Slowness III.",
   stats: ["+6 armor", "+2 armor toughness"]
 }, {
   name: "Boar",
   rarity: "Rare",
-  ability: "Charge attacks while sprinting deal +4 bonus damage.",
+  ability: "Deals bonus damage when charging at full sprint.",
   stats: ["+4 max health", "+2 attack damage"]
 }, {
   name: "Pangolin",
   rarity: "Rare",
-  ability: "20% chance to reflect incoming projectiles.",
+  ability: "20% chance to deflect incoming arrows.",
   stats: ["+2 armor toughness"]
 }, {
   name: "Hyena",
   rarity: "Rare",
-  ability: "+4 bonus damage to enemies below 35% HP.",
+  ability: "Deals bonus execution damage to weakened prey.",
   stats: ["+1.5 attack damage"]
 }, {
   name: "Falcon",
@@ -575,488 +587,400 @@ const PETS = [{
 }, {
   name: "Hornet",
   rarity: "Rare",
-  ability: "30% chance to poison enemies on hit for 5 seconds.",
+  ability: "30% chance to poison the target on hit.",
   stats: []
 }, {
   name: "Komodo Dragon",
   rarity: "Rare",
-  ability: "25% chance to poison enemies on hit for 6 seconds.",
+  ability: "25% chance to poison the target on hit.",
   stats: ["+1.5 attack damage"]
 }, {
   name: "Mantis",
   rarity: "Rare",
-  ability: "No active ability.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+3 attack damage", "+0.2 attack speed"]
 }, {
   name: "Quetzal",
   rarity: "Rare",
-  ability: "Grants Slow Falling II. 60% fall damage reduction.",
+  ability: "Grants Slow Falling II and reduces fall damage.",
   stats: []
 }, {
   name: "Rhino Beetle",
   rarity: "Rare",
-  ability: "Resistance while standing still for 4 seconds.",
+  ability: "Gain Resistance while standing still.",
   stats: ["+4 armor", "+0.3 knockback resistance"]
 }, {
   name: "Scorpion",
   rarity: "Rare",
-  ability: "40% chance on fist strikes to poison enemies for 5 seconds.",
+  ability: "40% chance to poison enemies when fighting bare-handed.",
   stats: []
 }, {
   name: "Silverfish",
   rarity: "Epic",
-  ability: "Grants Haste III while held.",
+  ability: "Grants Haste III (stacks with your tool).",
   stats: ["+4 max health"]
 }, {
   name: "The Shadow",
   rarity: "Epic",
   ability: "Grants Invisibility II and Speed II.",
-  stats: ["-8 max health"]
+  stats: []
 }, {
   name: "Cactus",
   rarity: "Epic",
-  ability: "Prickly aura. Damages enemies within 1.5 blocks.",
+  ability: "Pricks nearby enemies who stand too close.",
   stats: ["+2 armor toughness"]
 }, {
   name: "Relic",
   rarity: "Epic",
-  ability: "50% chance to deal double damage or no damage.",
+  ability: "50% chance to double or cancel your damage.",
   stats: []
 }, {
   name: "Tectonic Shard",
   rarity: "Epic",
-  ability: "Step up 1.5 blocks. Triggers a Tremor ability.",
-  stats: ["+1.5 step height"]
+  ability: "Lets you walk over blocks like flat ground.",
+  stats: []
 }, {
   name: "Emergency Flare",
   rarity: "Epic",
-  ability: "At 2 hearts or below blinds entities within 5 blocks for 3 seconds.",
+  ability: "Blinds all nearby enemies when you drop near death.",
   stats: []
 }, {
   name: "Tax Collector",
   rarity: "Epic",
-  ability: "Passively earns 2% of nearby players currency gains within 10 blocks.",
+  ability: "Passively earns 2% of nearby players' currency gains.",
   stats: []
 }, {
   name: "Ember Wolf",
   rarity: "Epic",
-  ability: "Fire immunity. 35% chance to ignite attackers for 4 seconds.",
+  ability: "Grants fire immunity and 35% chance to ignite attackers.",
   stats: ["+6 max health", "+2 attack damage"]
 }, {
   name: "Storm Hawk",
   rarity: "Epic",
-  ability: "12% chance to call lightning on hit.",
+  ability: "12% chance to call lightning on your enemies.",
   stats: ["+3 attack damage"]
 }, {
   name: "Lava Salamander",
   rarity: "Epic",
-  ability: "Fire immunity. Regenerates health while near lava.",
+  ability: "Grants fire immunity and heals you near lava.",
   stats: []
 }, {
   name: "Blood Bat",
   rarity: "Epic",
-  ability: "10% chance for lifesteal on hit.",
+  ability: "10% chance to heal for part of damage dealt.",
   stats: ["+0.3 attack speed"]
 }, {
   name: "Mud Golem",
   rarity: "Epic",
-  ability: "Resistance when standing still for 6 seconds. Drawback Slowness III.",
+  ability: "Gain Resistance while standing still. Drawback: Slowness III.",
   stats: ["+8 armor", "+3 armor toughness"]
 }, {
   name: "Thunder Boar",
   rarity: "Epic",
-  ability: "Charge attack deals +6 bonus damage. 8% chance to call lightning.",
+  ability: "Deals bonus charge damage and has an 8% chance to call lightning.",
   stats: ["+3 attack damage", "+6 max health"]
 }, {
   name: "Jungle Panther",
   rarity: "Epic",
-  ability: "Backstab. +5 damage when attacking from behind.",
+  ability: "Deals bonus backstab damage to unaware targets.",
   stats: ["+2 attack damage", "+4% movement speed"]
 }, {
   name: "Crystal Turtle",
   rarity: "Epic",
-  ability: "Resistance III at low HP for 4 seconds.",
+  ability: "Gain Resistance when low on health.",
   stats: ["+5 armor", "+8 max health"]
 }, {
   name: "Plague Rat",
   rarity: "Epic",
-  ability: "Infection aura within 3.5 blocks. Wither I.",
+  ability: "Spreads infection to nearby enemies.",
   stats: []
 }, {
   name: "Shadow Crow",
   rarity: "Epic",
-  ability: "Invisible for 3 seconds after killing an enemy.",
+  ability: "Turns you invisible after a kill.",
   stats: ["+4% movement speed"]
 }, {
   name: "Spore Mushroom",
   rarity: "Epic",
-  ability: "Prickly aura within 2.5 blocks. Infection aura within 2 blocks.",
+  ability: "Pricks nearby enemies and spreads infection around you.",
   stats: []
 }, {
   name: "Razor Mantis",
   rarity: "Epic",
-  ability: "Speed boost after each kill for 5 seconds.",
+  ability: "Gains a speed boost after each kill.",
   stats: ["+3 attack damage", "+0.3 attack speed"]
 }, {
   name: "Iron Colossus",
   rarity: "Epic",
-  ability: "15% chance to reflect projectiles. Drawback Slowness III.",
+  ability: "15% chance to reflect projectiles. Drawback: Slowness III.",
   stats: ["+10 armor", "+4 armor toughness"]
 }, {
   name: "Piglin Brute",
   rarity: "Legendary",
-  ability: "Grants Strength III.",
+  ability: "Grants Strength III (stacks with your tool).",
   stats: ["+10 max health", "+0.5 attack speed"]
 }, {
   name: "Frost Spirit",
   rarity: "Legendary",
-  ability: "Slows enemies within 3 block aura at amplifier II.",
+  ability: "Slows nearby enemies with a freezing aura.",
   stats: ["+4 armor toughness"]
 }, {
   name: "Void Eye",
   rarity: "Legendary",
-  ability: "Grants Night Vision II and Blink. 60 tick teleport.",
+  ability: "Grants Night Vision II and teleports you to safety when low.",
   stats: []
 }, {
   name: "The Echo",
   rarity: "Legendary",
-  ability: "10% chance to deal a duplicate double tap attack.",
+  ability: "10% chance to deal double melee damage.",
   stats: []
 }, {
   name: "Obsidian Golem",
   rarity: "Legendary",
-  ability: "Fire immunity. 25% chance to ignite attackers. Drawback -5% movement speed.",
+  ability: "Grants fire immunity and 25% chance to ignite attackers.",
   stats: ["+10 armor"]
 }, {
   name: "Vampire",
   rarity: "Legendary",
-  ability: "5% chance for lifesteal on hit.",
+  ability: "5% chance to heal for part of damage dealt.",
   stats: ["+0.1 attack speed"]
 }, {
   name: "King Midas",
   rarity: "Legendary",
-  ability: "10% chance for any mining currency earned to be doubled.",
+  ability: "10% chance to double currency earned while mining.",
   stats: []
 }, {
   name: "Deep Roots",
   rarity: "Legendary",
-  ability: "Stand still 3 seconds to gain Resistance II and Regeneration I.",
+  ability: "Stand still to gain Resistance II and Regeneration I.",
   stats: []
 }, {
   name: "Iron Titan",
   rarity: "Legendary",
-  ability: "Resistance when standing still for 6 seconds. Drawback Slowness IV.",
+  ability: "Gain Resistance while standing still. Drawback: Slowness IV.",
   stats: ["+12 armor", "+6 armor toughness", "+6 attack damage"]
 }, {
   name: "Time Warden",
   rarity: "Legendary",
-  ability: "Every 2 minutes health is rewound to what it was 10 seconds ago.",
+  ability: "Rewinds your health every 2 minutes to what it was 10 seconds ago.",
   stats: []
 }, {
   name: "Void Leech",
   rarity: "Legendary",
-  ability: "15% chance for lifesteal. Brief invisibility after kills.",
+  ability: "15% chance to heal for part of damage dealt and turns you invisible after a kill.",
   stats: ["+4 attack damage"]
 }, {
   name: "Storm Drake",
   rarity: "Legendary",
-  ability: "20% chance to call lightning. 15% chance to ignite for 4 seconds.",
+  ability: "20% chance to call lightning and 15% chance to set the target on fire.",
   stats: ["+5 attack damage"]
 }, {
   name: "Galactic Bear",
   rarity: "Legendary",
-  ability: "Berserk. Strength III at 50% HP or lower.",
+  ability: "Enters a berserk rage when below 50% health.",
   stats: ["+10 max health", "+4 attack damage"]
 }, {
   name: "Titan Crab",
   rarity: "Legendary",
-  ability: "Resistance when standing still for 5 seconds. Drawback Slowness III.",
+  ability: "Gain Resistance while standing still. Drawback: Slowness III.",
   stats: ["+10 armor", "+5 armor toughness", "+0.4 knockback resistance"]
 }, {
   name: "Eclipse Dragon",
   rarity: "Legendary",
-  ability: "Night Vision II. Invisible for 4 seconds after kills.",
+  ability: "Grants Night Vision II and turns you invisible after a kill.",
   stats: ["+4 attack damage"]
 }, {
   name: "Frost Wyrm",
   rarity: "Legendary",
-  ability: "30% chance to deep freeze enemies on hit for 5 seconds. Slow aura within 3 blocks.",
+  ability: "30% chance to deep-freeze targets and slows nearby enemies with a freezing aura.",
   stats: ["+4 attack damage"]
 }, {
   name: "Gravity Hound",
   rarity: "Legendary",
-  ability: "Pulls enemies within 5 blocks toward you.",
+  ability: "No active ability, pure stat boost.",
   stats: ["+3 attack damage", "+5% movement speed"]
 }, {
   name: "Ancient Tortoise",
   rarity: "Legendary",
-  ability: "Resistance when standing still for 6 seconds. Drawback Slowness IV.",
+  ability: "Gain Resistance while standing still. Drawback: Slowness IV.",
   stats: ["+14 armor", "+6 armor toughness", "+12 max health"]
 }, {
   name: "Nether Hellhound",
   rarity: "Legendary",
-  ability: "Fire immunity. 30% chance to ignite enemies for 4 seconds. Slow aura within 3 blocks.",
+  ability: "Grants fire immunity, 30% chance to set the target on fire and slows nearby enemies with a freezing aura.",
   stats: ["+8 max health", "+4 attack damage"]
 }, {
   name: "Businessman",
   rarity: "Mythic",
-  ability: "Doubles all coins earned.",
+  ability: "Doubles money earned.",
   stats: []
 }, {
   name: "Anvil",
   rarity: "Mythic",
-  ability: "Massive damage. Drawback cannot jump at all.",
-  stats: ["+10 attack damage", "Jump strength 0"]
+  ability: "No active ability, pure stat boost. Drawback: cannot jump.",
+  stats: ["+10 attack damage"]
 }, {
   name: "Chronos",
   rarity: "Mythic",
-  ability: "Every 2 minutes restores health to what it was 10 seconds ago.",
+  ability: "Rewinds your health every 2 minutes to what it was 10 seconds ago.",
   stats: []
 }, {
   name: "Heavyweight Champion",
   rarity: "Mythic",
-  ability: "Drawback cannot sprint.",
+  ability: "No active ability, pure stat boost. Drawback: cannot sprint.",
   stats: ["+20 max health", "+5 attack damage"]
 }, {
   name: "Ghost",
   rarity: "Mythic",
-  ability: "Sneak for 5 continuous seconds to become invisible for 10 seconds. 30 second cooldown.",
+  ability: "Sneak for 5 seconds to become invisible for 10 seconds.",
   stats: []
 }, {
   name: "Void Serpent",
   rarity: "Mythic",
-  ability: "25% chance to double tap attack. Invisibility for 2.5 seconds after kill.",
+  ability: "25% chance to deal double melee damage and turns you invisible after a kill.",
   stats: ["+5 attack damage"]
 }, {
   name: "Dread Reaper",
   rarity: "Mythic",
-  ability: "Strength II for 10 seconds after each kill.",
+  ability: "Gains a stacking damage boost after each kill.",
   stats: ["+4 attack damage"]
 }, {
   name: "Soul Harvester",
   rarity: "Mythic",
-  ability: "12% chance for lifesteal. Invisibility for 3 seconds after kills.",
+  ability: "12% chance to heal for part of damage dealt and turns you invisible after a kill.",
   stats: ["+4 attack damage"]
 }, {
   name: "Chaos Imp",
   rarity: "Mythic",
-  ability: "50% double or nothing damage and Blink teleport.",
+  ability: "50% chance to double or cancel your damage and teleports you to safety when low.",
   stats: []
 }, {
   name: "Dark Matter Cat",
   rarity: "Mythic",
-  ability: "Ghost phase invisibility after sneaking. 20% double tap attack.",
+  ability: "Phases out to invisibility on sneak and has a 20% chance to deal double melee damage.",
   stats: ["+8% movement speed"]
 }, {
   name: "Arcane Hydra",
   rarity: "Mythic",
-  ability: "40% double or nothing damage. 8% lifesteal.",
+  ability: "40% chance to double or cancel your damage and 8% chance to heal for part of damage dealt.",
   stats: ["+8 max health", "+3 attack damage"]
 }, {
   name: "Nightmare Stallion",
   rarity: "Mythic",
-  ability: "Ghost invisibility after sneaking. Speed III boost while sprinting for 2 seconds.",
+  ability: "Phases out to invisibility on sneak and grants strong speed while sprinting.",
   stats: ["+12% movement speed"]
 }, {
   name: "Eldritch Horror",
   rarity: "Mythic",
-  ability: "Anti Heal applied to enemies. Infection aura within 4 blocks at Wither II.",
+  ability: "Prevents enemy healing and spreads infection to nearby enemies.",
   stats: ["+5 attack damage", "+6 max health"]
 }, {
   name: "Abomination",
   rarity: "Mythic",
-  ability: "Berserk. Strength IV at 40% HP or lower.",
+  ability: "Enters a powerful berserk rage when below 40% health.",
   stats: ["+12 max health", "+4 attack damage"]
 }, {
   name: "Cosmic Dragon",
   rarity: "Mythic",
-  ability: "20% chance to call lightning. 20% chance to ignite for 5 seconds. 8% lifesteal.",
+  ability: "20% chance to call lightning, 20% chance to set the target on fire and 8% chance to heal for part of damage dealt.",
   stats: ["+7 attack damage", "+10 max health"]
 }, {
   name: "81hp_",
   rarity: "Special",
-  ability: "Regeneration III. Smite at low HP. Last Stand at low HP. Fortune Fiesta chance for 2x drops and money while mining.",
-  stats: ["+30 max health", "+20 attack damage", "+2.0 attack speed", "+30% movement speed"]
+  ability: "Grants Regeneration III, plus chances to smite low-health players with lightning, gain a last-stand buff under 3 hearts and trigger a Fortune Fiesta for 2x mining drops, XP and money.",
+  stats: ["+30 max health", "+20 attack damage", "+2 attack speed", "+30% movement speed"]
 }, {
-  name: "Kasane Teto",
+  name: "Shamil",
   rarity: "Special",
-  ability: "Soulbound Bread for fall and knockback immunity. Drill Breaker dash with stun. Territory heal.",
-  stats: ["+40 max health", "+40% movement speed", "+12 attack damage", "+5 armor toughness", "+1.0 knockback resistance"]
+  ability: "Emits an ambient heart-and-note aura and lets you double-sneak to dash forward and stun nearby players.",
+  stats: ["+40 max health", "+40% movement speed", "+12 attack damage", "+5 armor toughness", "+1 knockback resistance"]
 }, {
   name: "MECHA-PET 9000",
   rarity: "Special",
-  ability: "Grants Haste IV and Rocket Jump boost at 1.8x.",
+  ability: "Grants Haste IV (stacks with your tool) and a rocket jump boost.",
   stats: ["+8 max health"]
 }, {
   name: "Omega Slime",
   rarity: "Special",
-  ability: "Resistance when standing still for 5 seconds.",
-  stats: ["+8 armor", "+1.0 knockback resistance", "+10 max health"]
+  ability: "Gain Resistance while standing still.",
+  stats: ["+8 armor", "+1 knockback resistance", "+10 max health"]
 }, {
   name: "Glitch Fox",
   rarity: "Special",
-  ability: "Blink teleport and Ghost invisibility while sneaking.",
+  ability: "Teleports you to safety when low and phases out to invisibility on sneak.",
   stats: ["+6% movement speed"]
 }, {
   name: "Neon Jellyfish",
   rarity: "Special",
-  ability: "Outlines souls within 25 blocks. Slow aura within 3 blocks.",
+  ability: "Outlines nearby entities through walls and slows nearby enemies with an aura.",
   stats: []
 }, {
   name: "Cursed Doll",
   rarity: "Special",
-  ability: "Retaliation slow on attackers for 4 seconds at amplifier III. Anti Heal for 5 seconds.",
+  ability: "Slows attackers when you are hit and prevents enemy healing.",
   stats: []
 }, {
   name: "Prism Cat",
   rarity: "Special",
-  ability: "Speed II. Luck II. Outlines souls within 15 blocks.",
+  ability: "Grants Speed II and Luck II and outlines nearby souls through walls.",
   stats: ["+5% movement speed"]
 }, {
   name: "Ancient Beetle",
   rarity: "Special",
-  ability: "Resistance when standing still for 6 seconds. 25% chance to reflect projectiles.",
+  ability: "Gain Resistance while standing still and 25% chance to reflect projectiles.",
   stats: ["+10 armor", "+0.5 knockback resistance"]
 }, {
   name: "Pixel Dragon",
   rarity: "Special",
-  ability: "30% chance to double tap attack. Ghost invisibility phase.",
+  ability: "30% chance to deal double melee damage and phases out to invisibility on sneak.",
   stats: ["+5 attack damage"]
 }, {
   name: "Warp Bunny",
   rarity: "Special",
-  ability: "20% chance to swap positions with attacker on being hit.",
+  ability: "20% chance to swap places with your attacker.",
   stats: ["+8% movement speed"]
 }, {
   name: "Pollum",
   rarity: "Special",
-  ability: "30% chance to poison enemies on hit for 5 seconds. Infection aura within 3 blocks. Anti Heal for 6 seconds.",
+  ability: "30% chance to poison the target on hit, spreads infection to nearby enemies and prevents enemy healing.",
   stats: ["+6 max health"]
-}];
-const RARITY_ORDER = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Special'];
-const BOSSES = [{
-  name: "Pollum",
-  drops: [{
-    pct: "80%",
-    item: "1x Pollum Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "3x Pollum Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$5,000",
-    tag: "uncommon"
-  }, {
-    pct: "10%",
-    item: "1x Pollum's Axe",
-    tag: "leg"
-  }]
 }, {
   name: "Viper",
-  drops: [{
-    pct: "80%",
-    item: "1x Viper Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "3x Viper Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$7,500",
-    tag: "uncommon"
-  }, {
-    pct: "10%",
-    item: "1x Levelup Voucher",
-    tag: "leg"
-  }]
+  rarity: "Special",
+  ability: "35% chance to poison the target on hit, slows nearby enemies with an aura and slows attackers when you are hit.",
+  stats: ["+8 max health", "+3 attack damage", "+0.2 attack speed"]
 }, {
   name: "Tinc",
-  drops: [{
-    pct: "70%",
-    item: "1x Tinc Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "2x Tinc Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$5,000",
-    tag: "uncommon"
-  }, {
-    pct: "5%",
-    item: "1x Tinc's Sword",
-    tag: "leg"
-  }, {
-    pct: "5%",
-    item: "1x Tinc's Scythe",
-    tag: "leg"
-  }]
+  rarity: "Special",
+  ability: "Grants fire immunity, 30% chance to set the target on fire and 30% chance to ignite attackers.",
+  stats: ["+8 max health", "+3 attack damage"]
 }, {
   name: "Xenon",
-  drops: [{
-    pct: "80%",
-    item: "1x Xenon Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "3x Xenon Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$12,000",
-    tag: "uncommon"
-  }, {
-    pct: "10%",
-    item: "1x Xenon's Scepter",
-    tag: "leg"
-  }]
+  rarity: "Special",
+  ability: "15% chance to call lightning, gains a damage boost after each kill and outlines nearby souls through walls.",
+  stats: ["+8 max health", "+5 attack damage"]
 }, {
   name: "Adam",
-  drops: [{
-    pct: "70%",
-    item: "1x Adam Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "2x Adam Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$10,000",
-    tag: "uncommon"
-  }, {
-    pct: "5%",
-    item: "1x Adam's Sword",
-    tag: "leg"
-  }, {
-    pct: "5%",
-    item: "1x Adam's Axe",
-    tag: "leg"
-  }]
+  rarity: "Special",
+  ability: "Grants slow falling, 20% chance to call lightning and gain Resistance when low on health.",
+  stats: ["+10 max health", "+5 attack damage", "+10% movement speed", "+3 armor toughness"]
 }, {
   name: "Malacher",
-  drops: [{
-    pct: "70%",
-    item: "1x Malacher Shard",
-    tag: "common"
-  }, {
-    pct: "45%",
-    item: "2x Malacher Shard",
-    tag: "rare"
-  }, {
-    pct: "60%",
-    item: "$15,000",
-    tag: "uncommon"
-  }, {
-    pct: "5%",
-    item: "1x Malacher's Scythe",
-    tag: "leg"
-  }]
+  rarity: "Special",
+  ability: "15% chance to heal for part of damage dealt, 40% chance to enter a berserk rage and turns you invisible after a kill.",
+  stats: ["+8 max health", "+6 attack damage"]
+}, {
+  name: "Dredge",
+  rarity: "Special",
+  ability: "Grants Night Vision II and Haste III (stacks with your tool).",
+  stats: ["+10 max health", "+5 attack damage", "+0.3 knockback resistance"]
+}, {
+  name: "Vexor",
+  rarity: "Special",
+  ability: "Prevents enemy healing, 20% chance to deal double melee damage, gains a stacking damage boost after each kill and spreads infection to nearby enemies.",
+  stats: ["+12 max health", "+7 attack damage", "+3 armor toughness"]
 }];
+const RARITY_ORDER = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Special'];
 function PetRoster() {
   const [q, setQ] = useState('');
   const [filter, setFilter] = useState('All');
@@ -1120,119 +1044,83 @@ function PetRoster() {
     }
   }, "No pets match your filter."));
 }
-function BossTerminal() {
-  return /*#__PURE__*/React.createElement("div", null, BOSSES.map((b, bi) => /*#__PURE__*/React.createElement("div", {
-    key: b.name,
-    className: "terminal mb-5"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "terminal-bar"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "terminal-dot",
-    style: {
-      background: '#ff5f57'
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "terminal-dot",
-    style: {
-      background: '#febc2e'
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "terminal-dot",
-    style: {
-      background: '#28c840'
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: '0.8rem',
-      color: '#a5b6a8',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em'
-    }
-  }, "primalmines @ loot ~ boss/", b.name.toLowerCase())), /*#__PURE__*/React.createElement("div", {
-    className: "terminal-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "term-cmd"
-  }, "$ ./roll-drops --boss=", b.name.toLowerCase()), /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: '0.4rem'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: '#6dff85',
-      fontSize: '1.5rem',
-      fontFamily: 'Bricolage Grotesque, sans-serif',
-      fontWeight: 800,
-      letterSpacing: '-0.02em',
-      marginBottom: '0.6rem'
-    }
-  }, b.name), b.drops.map((d, di) => /*#__PURE__*/React.createElement("div", {
-    key: di,
-    className: "term-line",
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      flexWrap: 'wrap'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "term-pct"
-  }, d.pct), /*#__PURE__*/React.createElement("span", {
-    style: {
-      flex: 1
-    }
-  }, d.item), /*#__PURE__*/React.createElement("span", {
-    className: `term-tag-${d.tag}`,
-    style: {
-      fontSize: '0.72rem',
-      fontWeight: 700,
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase'
-    }
-  }, d.tag === 'leg' ? 'legendary' : d.tag)))))));
-}
+const _e = React.createElement, _F = React.Fragment;
 const GUIDES = {
   'getting-started': {
     title: 'Getting Started',
     intro: 'Everything you need to log in and start mining.',
     sections: [{
       h: 'How to Join',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "PrimalMines runs on Paper for Minecraft Java Edition. You can connect from any recent Java version that the server supports."), /*#__PURE__*/React.createElement("p", null, "Open Minecraft. Click Multiplayer. Add Server. Paste the IP below and you are in."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("code", null, "play.primalmines.net")), /*#__PURE__*/React.createElement("p", null, "Keep Inventory is on so you never lose your loot when you die."))
+      body: _e(_F, null, _e("p", null, "PrimalMines runs on Paper for Minecraft Java Edition. Connect from any recent Java version the server supports (ViaVersion keeps newer clients working)."), _e("p", null, "Open Minecraft, click Multiplayer, Add Server, paste the IP and join."), _e("p", null, _e("code", null, "play.primalmines.net")), _e("p", null, "Keep Inventory is on, so you never lose your loot when you die."))
     }, {
       h: 'Your First Hour',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Start with the Overworld mine. Break blocks to earn money and XP at the same time. Money lets you afford better pickaxes. XP raises your level which unlocks prestige later on."), /*#__PURE__*/React.createElement("p", null, "Open your inventory and check the bottom bar. Your XP bar fills as you mine. Your level number sits next to it. The longer you mine the faster you progress because boosters and rank perks stack on top of your base earnings."), /*#__PURE__*/React.createElement("p", null, "Use ", /*#__PURE__*/React.createElement("code", null, "/menu"), " to open the main menu. Use ", /*#__PURE__*/React.createElement("code", null, "/help"), " any time you need a refresher."))
+      body: _e(_F, null, _e("p", null, "Start in the Overworld mine. Every block you break pays out at once: server money, PrimalMines level XP, skill XP and XP for your active pet. Spend the money on better pickaxes and gear from the mine shop."), _e("p", null, "Open your inventory and look at the bottom bar. Your XP bar is repurposed to show your PrimalMines level. The longer you mine the faster you climb, because boosters, rank perks, prestige multipliers and pet buffs all stack on top of your base earnings."), _e("p", null, "Type ", _e("code", null, "/menu"), " for the hub menu and ", _e("code", null, "/help"), " any time you need a refresher."))
     }, {
       h: 'Hub and Spawn',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Spawn is the hub. From there you can reach mines, shops and the NPCs that hand out quests. Talk to anyone glowing."), /*#__PURE__*/React.createElement("p", null, "If you ever get lost type ", /*#__PURE__*/React.createElement("code", null, "/spawn"), "."))
+      body: _e(_F, null, _e("p", null, "Spawn is the hub. From there you reach the mines, shops, crates, the leaderboards and the NPCs that hand out quests. The first NPC to talk to is the tutorial NPC, who walks you through every system on the server."), _e("p", null, "If you ever get lost type ", _e("code", null, "/spawn"), "."))
     }, {
       h: 'The Main Menu',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/menu"), " or ", /*#__PURE__*/React.createElement("code", null, "/m"), " to open the Main Menu. It is the easiest way to reach every system on the server without remembering individual commands. From the menu you can jump straight into Daily Rewards, Stats, Warps, Ranks, the Store, your Stash, Prestige, Skills, Compressors, Boosters, the Pet Shop, the Keys Shop, Chat Colors, Tags, Glow, Help and Options."), /*#__PURE__*/React.createElement("p", null, "Submenus that you open from the Main Menu pop back to the menu when you close them. When in doubt type ", /*#__PURE__*/React.createElement("code", null, "/menu"), "."))
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/menu"), " or ", _e("code", null, "/m"), " to open the Global Menu. It is the fastest way to reach every system without remembering individual commands. From the menu you can open:"), _e("ul", null, _e("li", null, "Server Info, Discord and Rules"), _e("li", null, "Your Stats, Balance / Convert and Ranks"), _e("li", null, "Prestige, Skills and the Store"), _e("li", null, "Warps, Daily Reward and Help"), _e("li", null, "Compressors, Boosters and the Mine Shop"), _e("li", null, "the Pet Shop, the Keys Shop, Chat Colors and Options")), _e("p", null, "When in doubt, type ", _e("code", null, "/menu"), "."))
     }]
   },
   'mining-fortune': {
-    title: 'Mining and Fortune',
-    intro: 'Fortune is the heart of progression. Here is how it works.',
+    title: 'Mining, Fortune and Compression',
+    intro: 'Mining is the heart of progression. Here is how every block pays you.',
     sections: [{
-      h: 'How Fortune Works',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Every block you break rolls Fortune. The higher your Fortune number the more blocks drop per break. PrimalMines uses a custom Fortune plugin that handles Fortune 1000 and beyond so the late game still feels rewarding."), /*#__PURE__*/React.createElement("p", null, "Your pickaxe shows its Fortune level in the lore. Top tier mining picks reach Fortune 20."))
+      h: 'How Mining Pays',
+      body: _e(_F, null, _e("p", null, "Every mineable block you break in a mine rewards you several ways at once: money (boosted by the Monopoly enchant), PrimalMines level XP, Mining skill XP and XP for your active pet."), _e("p", null, "There is a safety cap of 100,000 items from any single block break so extreme Fortune never lags the server."))
     }, {
-      h: 'Autocompression',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Your inventory would fill up instantly without compression. PrimalMines compresses your drops automatically once you unlock the perk."), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "From"), /*#__PURE__*/React.createElement("th", null, "To"), /*#__PURE__*/React.createElement("th", null, "Ratio"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, "Normal"), /*#__PURE__*/React.createElement("td", null, "Enchanted"), /*#__PURE__*/React.createElement("td", null, "64 to 1")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, "Enchanted"), /*#__PURE__*/React.createElement("td", null, "Super Enchanted"), /*#__PURE__*/React.createElement("td", null, "32 to 1")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, "Super Enchanted"), /*#__PURE__*/React.createElement("td", null, "Ultra Enchanted"), /*#__PURE__*/React.createElement("td", null, "32 to 1")))), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/autocompress"), " unlocked at Gladiator rank or VIP"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/supercompress"), " unlocked at Paragon rank or Aethereal"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/ultracompress"), " Primal rank only")))
+      h: 'How Fortune Works',
+      body: _e(_F, null, _e("p", null, "Drop count is your Fortune level plus one, multiplied by your prestige multiplier, any active resource booster, the block's own multiplier and your pet and talisman bonuses. The custom mining engine handles enormous Fortune values, so the late game keeps scaling."), _e("p", null, "Fortune is the enchant on your held pickaxe. There is no hard Fortune cap built into the mining engine, so higher tier pickaxes simply carry higher Fortune. Check your pickaxe lore to see its current enchants."))
+    }, {
+      h: 'Compression',
+      body: _e(_F, null, _e("p", null, "Your inventory would fill instantly without compression. Mined blocks stack up through four tiers, automatically once you own the compressor for that tier."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "From"), _e("th", null, "To"), _e("th", null, "Ratio"))), _e("tbody", null, _e("tr", null, _e("td", null, "Normal"), _e("td", null, "Enchanted"), _e("td", null, "64 to 1")), _e("tr", null, _e("td", null, "Enchanted"), _e("td", null, "Super Enchanted"), _e("td", null, "64 to 1")), _e("tr", null, _e("td", null, "Super Enchanted"), _e("td", null, "Ultra Enchanted"), _e("td", null, "32 to 1")))), _e("p", null, "Not every block has a Super or Ultra tier. Ultra exists for the deeper dimension blocks and ores."))
+    }, {
+      h: 'Compressors GUI',
+      body: _e(_F, null, _e("p", null, "Open ", _e("code", null, "/compressors"), " for the compressor menu. It has Auto, Super and Ultra tabs, with a toggle for each mine region so you control exactly what compresses. The commands below flip compression on or off:"), _e("ul", null, _e("li", null, _e("code", null, "/autocompress"), " normal into enchanted"), _e("li", null, _e("code", null, "/supercompress"), " enchanted into super enchanted"), _e("li", null, _e("code", null, "/ultracompress"), " super into ultra enchanted")), _e("p", null, "Compressor access is unlocked through ranks, the in game Compressor Voucher key or the store. You can also slot a Heart of the Sea compressor item in your off hand to auto compress its matching region."))
     }, {
       h: 'Boosters',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Boosters multiply your earnings or your XP for a limited time. You can stack them with your prestige multiplier and your rank perks."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Block boosters"), " increase how many blocks you collect per break. They run for 30 or 40 minutes depending on the booster."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "XP boosters"), " do the same for level XP.")), /*#__PURE__*/React.createElement("p", null, "Find boosters as rewards from crates, quests, the daily menu and the store. Paragon rank and above can activate server wide boosters at no cost on a cooldown."))
+      body: _e(_F, null, _e("p", null, "Boosters multiply earnings or XP for everyone on the server for a limited time. Open the menu with ", _e("code", null, "/boost"), "."), _e("ul", null, _e("li", null, _e("strong", null, "Resource boosters"), " multiply how many blocks you collect: 2x lasts 40 minutes, 3x lasts 30 minutes."), _e("li", null, _e("strong", null, "XP boosters"), " do the same for level XP: 2x for 40 minutes, 3x for 30 minutes.")), _e("p", null, "Only one resource and one XP booster run at a time. Activating the same tier again adds its time to the timer. Find boosters in crates, the daily menu and the store. Primal rank can fire free boosters with ", _e("code", null, "/claimboost"), " every 5 days."))
+    }, {
+      h: 'The Trench Enchant',
+      body: _e("p", null, "Trench is a mining enchant that breaks a connected vein of extra blocks around the one you hit, each routed through your full Fortune and compression. The vein grows with the enchant level. It is a special enchant, not part of the standard shop rotation.")
     }]
   },
   'levels-xp': {
     title: 'Levels and XP',
-    intro: 'Your level decides when you can prestige and unlocks long term goals.',
+    intro: 'Your level decides when you can prestige and drives long term goals.',
     sections: [{
-      h: 'Base Rate',
-      body: /*#__PURE__*/React.createElement("p", null, "Every block you break gives 1 XP. That XP is multiplied by your XP multiplier which starts at 1 and goes up by 1 every time you prestige. Boosters multiply on top of that.")
+      h: 'How XP is Earned',
+      body: _e(_F, null, _e("p", null, "Every mined block grants level XP based on the block. Plain stone and netherrack give 1, ores give more (iron 4 to 5, gold 6 to 7, diamond 12 to 15, emerald 15 to 18) and the rarest blocks give a lot, Ancient Debris alone is 50 XP."), _e("p", null, "That base XP is then multiplied by your XP multiplier and any active XP booster."))
+    }, {
+      h: 'Multipliers',
+      body: _e("ul", null, _e("li", null, _e("strong", null, "Prestige"), " grants a permanent XP multiplier every time you rebirth."), _e("li", null, _e("strong", null, "XP boosters"), " stack 2x or 3x on top, server wide."), _e("li", null, _e("strong", null, "The Lapis region"), " gives 3x XP while you mine inside it."), _e("li", null, _e("strong", null, "The XP Talisman"), " (light blue dye in your off hand) gives 3x XP."))
+    }, {
+      h: 'The XP Curve',
+      body: _e("p", null, "XP needed per level follows an exponential curve starting at 100 and growing about 10% each level. There is no maximum level, so the climb never ends.")
     }, {
       h: 'Where it Shows',
-      body: /*#__PURE__*/React.createElement("p", null, "Your Minecraft XP bar is repurposed to show your PrimalMines level. The number is your level. The bar fills as you progress toward the next one.")
+      body: _e("p", null, "Your Minecraft XP bar is repurposed to show your PrimalMines level. The number is your level and the bar fills toward the next one.")
     }, {
       h: 'Prestige Threshold',
-      body: /*#__PURE__*/React.createElement("p", null, "First prestige requires level 100. After that the requirement climbs by 100 every prestige. So your second prestige needs level 200, your third needs level 300 and so on.")
+      body: _e("p", null, "Your first prestige needs level 100. After that the requirement climbs by 100 every prestige, so prestige two needs level 200, prestige three needs 300 and so on.")
+    }]
+  },
+  'skills': {
+    title: 'Skills',
+    intro: 'Five skills track how you play and pay you for leveling each one.',
+    sections: [{
+      h: 'The Five Skills',
+      body: _e("ul", null, _e("li", null, _e("strong", null, "Mining"), " levels as you break blocks."), _e("li", null, _e("strong", null, "Combat"), " levels from PvP, killing other players."), _e("li", null, _e("strong", null, "Bosses"), " levels as you defeat server bosses."), _e("li", null, _e("strong", null, "Taming"), " levels when you level up your pets. Higher rarity pets and higher pet levels give far more Taming XP."), _e("li", null, _e("strong", null, "Experience"), " is fed automatically, every time you earn XP in another skill, 10% of it flows into Experience. Each Experience level then adds a small global bonus to all your other skill XP."))
+    }, {
+      h: 'XP Curves',
+      body: _e(_F, null, _e("p", null, "Each skill caps at level 100 and uses its own curve."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Skill"), _e("th", null, "Base XP"), _e("th", null, "Growth"))), _e("tbody", null, _e("tr", null, _e("td", null, "Mining"), _e("td", null, "400"), _e("td", null, "1.14")), _e("tr", null, _e("td", null, "Combat"), _e("td", null, "500"), _e("td", null, "1.15")), _e("tr", null, _e("td", null, "Taming"), _e("td", null, "600"), _e("td", null, "1.16")), _e("tr", null, _e("td", null, "Bosses"), _e("td", null, "800"), _e("td", null, "1.18")), _e("tr", null, _e("td", null, "Experience"), _e("td", null, "1000"), _e("td", null, "1.15")))))
+    }, {
+      h: 'Rewards',
+      body: _e(_F, null, _e("p", null, "Every skill level pays out money plus PrimalMines level XP, both scaling with the level you reach. Money per level runs from $500 (Experience) up to $1,000 (Bosses)."), _e("p", null, "On top of that, each skill level up also grants 100 PrimalMines level XP and 50 pet XP to your active pet. Leveling skills feeds your prestige threshold, your wallet and your pet at once."))
+    }, {
+      h: 'Opening Skills',
+      body: _e("p", null, "Type ", _e("code", null, "/skills"), " for the skills menu or ", _e("code", null, "/skills <name>"), " to jump straight to one skill's tree. The trees are a visual progress display showing each level's rewards.")
     }]
   },
   'prestige': {
@@ -1240,152 +1128,101 @@ const GUIDES = {
     intro: 'Prestige is how you reset to push further.',
     sections: [{
       h: 'How to Prestige',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Open the prestige menu with ", /*#__PURE__*/React.createElement("code", null, "/prestige"), " or ", /*#__PURE__*/React.createElement("code", null, "/rebirth"), ". The GUI lists your current requirements with a green checkmark next to anything you already have."), /*#__PURE__*/React.createElement("p", null, "You need the max gear of your current dimension plus the level threshold. The level threshold starts at 100 and grows by 100 every prestige you complete."))
+      body: _e(_F, null, _e("p", null, "Open the menu with ", _e("code", null, "/prestige"), " or ", _e("code", null, "/rebirth"), ". The GUI lists your requirements with a checkmark next to anything you already have."), _e("p", null, "You need the maxed gear set of your current prestige dimension plus the level threshold. That threshold starts at 100 and grows by 100 every prestige."))
     }, {
       h: 'What You Lose',
-      body: /*#__PURE__*/React.createElement("p", null, "You lose the max gear of whatever prestige dimension you are currently in. Armor, sword and pickaxe are all consumed by the ritual. You earn it back with a permanent multiplier boost so every climb is faster than the last.")
+      body: _e("p", null, "The required gear set, armor, sword and pickaxe, is consumed when you prestige. You earn it back fast thanks to the permanent multiplier boost, so every climb is quicker than the last.")
     }, {
       h: 'What You Gain',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "+1 block multiplier permanently"), /*#__PURE__*/React.createElement("li", null, "+1 XP multiplier permanently"), /*#__PURE__*/React.createElement("li", null, "1 Prestige Coin"), /*#__PURE__*/React.createElement("li", null, "Access to the next prestige dimension"), /*#__PURE__*/React.createElement("li", null, "A server broadcast for players who have the option enabled"))
+      body: _e("ul", null, _e("li", null, "+1 block multiplier, permanently"), _e("li", null, "+1 XP multiplier, permanently"), _e("li", null, "1 Prestige Coin"), _e("li", null, "Access to the next prestige dimension"), _e("li", null, "A server wide broadcast that other players see if they have broadcasts turned on"))
     }, {
-      h: 'The Altar',
-      body: /*#__PURE__*/React.createElement("p", null, "There is a physical altar at the end of the Abyss mine line. An NPC there gives an ominous speech before the ritual. The actual prestige still happens through the command but the altar makes the moment feel earned.")
+      h: 'Prestige Dimensions',
+      body: _e("p", null, "Prestige runs through three gear tiers in order: the Abyss set unlocks The Depths and the Depths set unlocks The Deep Dark. Spend your Prestige Coins in the prestige shop with ", _e("code", null, "/prestigeshop"), " for lasting upgrades.")
     }]
   },
   'pets': {
     title: 'Pets',
-    intro: 'Pets follow you around the server and boost your stats passively.',
+    intro: '124 collectible pets that follow you and boost your stats.',
     sections: [{
       h: 'How Pets Work',
-      body: /*#__PURE__*/React.createElement("p", null, "You can equip one pet at a time. The pet floats next to you wherever you go. While equipped its ability and its passive stats are active. Some abilities trigger on hit. Others run constantly. A few only activate on certain actions like sneaking or standing still.")
+      body: _e(_F, null, _e("p", null, "You equip one pet at a time from your Pet Menu (", _e("code", null, "/pets"), "). The pet floats beside you with its level shown on its name tag. While equipped, its ability and its passive stats are active."), _e("p", null, "Abilities trigger in different ways depending on the pet: some fire when you hit something, some when you take damage, some run as a constant aura, some after a kill, some while you mine and a few only when you sneak or stand still."))
+    }, {
+      h: 'Leveling Pets',
+      body: _e("p", null, "Only your active pet gains XP and it gains it from mining, one XP per block, multiplied by your pickaxe's Fortune. Pets cap at level 100. Leveling scales the pet's stat bonuses and the strength or chance of its ability and shrinks any drawback.")
     }, {
       h: 'Rarities',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Common"), /*#__PURE__*/React.createElement("li", null, "Uncommon"), /*#__PURE__*/React.createElement("li", null, "Rare"), /*#__PURE__*/React.createElement("li", null, "Epic"), /*#__PURE__*/React.createElement("li", null, "Legendary"), /*#__PURE__*/React.createElement("li", null, "Mythic"), /*#__PURE__*/React.createElement("li", null, "Special"))
+      body: _e("ul", null, _e("li", null, "Common"), _e("li", null, "Uncommon"), _e("li", null, "Rare"), _e("li", null, "Epic"), _e("li", null, "Legendary"), _e("li", null, "Mythic"), _e("li", null, "Special"))
     }, {
       h: 'How to Get Pets',
-      body: /*#__PURE__*/React.createElement("p", null, "Pets come from crates, quests, mob drops and the pet shop. Boss pets drop at a small percent chance from the matching boss.")
+      body: _e(_F, null, _e("p", null, "There are several routes:"), _e("ul", null, _e("li", null, _e("strong", null, "Pet Shop"), " (", _e("code", null, "/petshop"), ") sells Common through Legendary pets: Common $1,000, Uncommon $6,000, Rare $25,000, Epic $75,000, Legendary $500,000."), _e("li", null, _e("strong", null, "Pet crates and keys"), " from the Keys Shop and daily rewards, one per rarity. Mythic and Special pets come from these crates and from bosses."), _e("li", null, _e("strong", null, "Boss drops"), ", each of the eight Slayer bosses drops its matching pet at a 1% chance.")))
     }, {
       h: 'Every Pet',
-      body: /*#__PURE__*/React.createElement(PetRoster, null)
+      body: _e(PetRoster, null)
     }]
   },
   'bosses': {
-    title: 'Bosses',
-    intro: 'Every boss has its own loot table. Listed below in full.',
+    title: 'Slayer System',
+    intro: 'Eight bosses. Five levels each. SkyBlock style boss progression.',
     sections: [{
-      h: 'How Drops Work',
-      body: /*#__PURE__*/React.createElement("p", null, "When a boss dies it rolls its drops in order from top to bottom. The first chance that lands hands you the drop and the roll stops. Bosses must be killed many times so do not stop after one attempt.")
+      h: 'Opening Slayer',
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " to open the menu, a 6 row chest titled Slayer Menu. A nether star at the top shows your Combined Slayer Level out of 40 (8 bosses x 5 levels of mastery)."), _e("p", null, "Bosses sit in progression order across two rows: Pollum, Viper, Tinc and Xenon on top, then Adam, Malacher, Dredge and Vexor. Each icon shows your Slayer Level in Roman numerals, your lifetime kills and your XP bar. Locked bosses tell you what you need."))
     }, {
-      h: 'Loot Tables',
-      body: /*#__PURE__*/React.createElement(BossTerminal, null)
+      h: 'Unlocking Bosses',
+      body: _e("p", null, "Pollum is always open. Every other boss unlocks when you reach Slayer Level II on the one before it. The chain follows the dimensions: Pollum (Overworld), Viper (Cave), Tinc (Nether), Xenon (End), Adam (Aether), Malacher (Abyss), Dredge (Depths), Vexor (Deep Dark). You must stand in a Boss Area to summon.")
+    }, {
+      h: 'Summoning',
+      body: _e(_F, null, _e("p", null, "Open a boss and press Summon and it spawns on top of you. Each summon costs money, taken from your balance the moment the boss appears. You can only have one of each boss out at a time; the lock clears after 10 minutes so a despawn or stolen kill never traps you."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Boss"), _e("th", null, "Summon Cost"))), _e("tbody", null, _e("tr", null, _e("td", null, "Pollum"), _e("td", null, "$2,500")), _e("tr", null, _e("td", null, "Viper"), _e("td", null, "$5,000")), _e("tr", null, _e("td", null, "Tinc"), _e("td", null, "$7,500")), _e("tr", null, _e("td", null, "Xenon"), _e("td", null, "$10,000")), _e("tr", null, _e("td", null, "Adam"), _e("td", null, "$15,000")), _e("tr", null, _e("td", null, "Malacher"), _e("td", null, "$20,000")), _e("tr", null, _e("td", null, "Dredge"), _e("td", null, "$30,000")), _e("tr", null, _e("td", null, "Vexor"), _e("td", null, "$50,000")))), _e("p", null, "Auto Slayer (bottom of the menu) re-summons the same boss 3 seconds after a kill, as long as you stay within 40 blocks. The summon cost still applies each time. It unlocks once you reach Slayer Level III on Pollum, Viper, Tinc and Xenon."))
+    }, {
+      h: 'Public vs Private',
+      body: _e(_F, null, _e("p", null, _e("strong", null, "Public"), " is the default. Anyone can hit your boss and players within 30 blocks of the kill share half the per kill XP. You still get the full reward and drops."), _e("p", null, _e("strong", null, "Private"), " blocks all damage from other players, no stolen kills, no shared XP. The toggle applies to every boss at once."))
+    }, {
+      h: 'XP and Leveling',
+      body: _e(_F, null, _e("p", null, "Each boss has its own XP pool. XP per kill scales from 25 on Pollum up to 95 on Vexor. The pool you need per level is 100, then 225, 510, 1,150 and 2,600, about 4,585 XP to fully master a single boss."), _e("p", null, "When you cross a threshold the requirement is subtracted and your level ticks up, so a kill with leftover XP can chain multiple level ups."))
+    }, {
+      h: 'Drops Per Kill',
+      body: _e(_F, null, _e("p", null, "Each kill rolls the boss loot table from rarest to most common and the first roll that lands is your one drop for that kill."), _e("p", null, "The ", _e("strong", null, "Plunder"), " custom enchant on your weapon adds a flat 1% per level to each roll (capped at Plunder 10 and no roll can exceed 75%). Higher Plunder pushes you toward the better drops."))
+    }]
+  },
+  'forge': {
+    title: 'The Forge',
+    intro: 'Spend boss Shards to forge powerful gear.',
+    sections: [{
+      h: 'Opening the Forge',
+      body: _e(_F, null, _e("p", null, "Talk to the Forge NPC at the boss area portal to open The Forge. It has one slot per boss, in the same order as the Slayer menu. Click a boss to open its forge, then choose Armor or Miscellaneous."), _e("p", null, "Everything you forge is paid for with that boss's Shards, which drop when you slay it. The more you hunt a boss, the more you can forge."))
+    }, {
+      h: 'Armor Sets',
+      body: _e("p", null, "Each boss has its own armor set with three tiers of every piece: helmet, chestplate, leggings and boots. Spend Shards to forge each tier and build out the full set for that dimension's boss.")
+    }, {
+      h: 'Miscellaneous',
+      body: _e("p", null, "The Miscellaneous section holds everything else a boss can forge, such as crate keys and pet shards. It is paginated and new recipes are added over time.")
+    }, {
+      h: 'Costs',
+      body: _e("p", null, "Every recipe card lists its requirements with a green tick or a red cross. Most cost Shards and some also ask for extra items or a little money. When you can afford it, click to forge and watch the anvil do its work.")
     }]
   },
   'quests': {
     title: 'Quests',
-    intro: 'Story driven quests with NPC dialogue, choices and named rewards.',
+    intro: 'Rotating weekly challenges plus story driven NPC quests.',
     sections: [{
-      h: 'How Dialogue Works',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "NPC dialogue runs in your actionbar so the chat never floods. Each line plays a soft note block bell sound. Choice menus open as small chest GUIs so you can click your answer."), /*#__PURE__*/React.createElement("p", null, "NPCs are shown or hidden per player based on your current quest stage. You always see the NPC that matters for your stage."))
+      h: 'Two Quest Systems',
+      body: _e(_F, null, _e("p", null, "PrimalMines has two separate quest systems: the weekly challenge board you open with ", _e("code", null, "/quests"), " and the story quests handed out by NPCs around the map."), _e("p", null, "Story dialogue runs in your actionbar with a soft bell on each line, so chat never floods. Choice menus open as small chest GUIs and NPCs appear or hide based on your current stage so you always see the one that matters."))
+    }, {
+      h: 'Weekly Quests',
+      body: _e("p", null, "Open ", _e("code", null, "/quests"), " for three rotating challenges that reset every week. Each one tracks a goal like mining a block, winning fights or defeating bosses and pays out XP and cash. Hit the goal, then click to claim.")
     }, {
       h: 'The Dragon Quest',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "The Dragon Quest is the main rank unlock chain on the server. It is given by Dragon13215 the wandering NPC who makes the rank vouchers himself. He is terse and a little grumpy. He talks like a guy who would rather be somewhere else. The whole questline runs through him and unlocks every free rank as you progress."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 0"), ". First contact. Dragon asks you to bring him 5 Super Enchanted Endstone. He will not say why."), /*#__PURE__*/React.createElement("blockquote", null, "Don't ask questions. I'll explain when you're back."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 1"), ". Hand in the endstone. He reveals he makes rank vouchers and hands you Shopping List 1."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 2 Catastro List"), ". Bring 32 purpur, voucher paper, a rank pen and $35,000. Reward is the Dragonsword diamond sword plus the Catastro voucher unlocked in his shop."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 3 Gladiator tease"), ". At level 50 or higher he mentions he found something weird down in the Deep Dark. Eggs."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 4 to 5 Gladiator List"), ". Bring 32 glowstone, a rank pen, voucher paper and dye. Unlocks the Gladiator voucher in his shop."), /*#__PURE__*/React.createElement("blockquote", null, "Something about these eggs just feels.. off. In a good way I think."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 6 to 8 Sentinel List"), ". At level 100 or 200 prestige XP he tells you about more eggs. Different ones. Bring 3 Deep Dark Eggs, Sentinel dye, a rank pen and voucher paper. Unlocks the Sentinel voucher."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Stage 9 to 11 Paragon List"), ". At level 200 he hands you the last list. Bring an Omega Pickaxe, 2 voucher paper, 2 rank pen, Paragon dye, 32 Primoa Ore and $500,000. Unlocks the Paragon voucher."), /*#__PURE__*/React.createElement("blockquote", null, "You'll probably never need to talk to me again after this. No offence. Come back anyway sometime."), /*#__PURE__*/React.createElement("p", null, "At stage 12 his shop stays open for life so you can revisit and grab anything you missed."))
+      body: _e(_F, null, _e("p", null, "The Dragon Quest is the free rank unlock chain, run entirely by Dragon13215, a terse wandering NPC who makes the rank vouchers himself. Each stage asks for a shopping list of materials and completing it unlocks that rank's voucher in his shop. The voucher still costs server money to buy."), _e("p", null, _e("strong", null, "Endstone intro"), ". Bring 5 Super Enchanted Endstone. He then reveals what he does and hands you the first list."), _e("blockquote", null, "Don't ask questions. I'll explain when you're back."), _e("p", null, _e("strong", null, "Catastro List"), ". 32 Super Enchanted Purpur, voucher paper, a rank pen and $35,000. Reward: the Dragon Sword and the ", _e("strong", null, "Catastro"), " voucher unlocked for $750,000."), _e("p", null, _e("strong", null, "Gladiator List"), " (level 50+). 32 Super Enchanted Glowstone, a rank pen, voucher paper and Gladiator dye. Unlocks the ", _e("strong", null, "Gladiator"), " voucher for $2,500,000."), _e("p", null, _e("strong", null, "Sentinel List"), " (level 100+). 3 Deep Dark Eggs, Sentinel dye, a rank pen and voucher paper. Unlocks the ", _e("strong", null, "Sentinel"), " voucher for $7,500,000."), _e("p", null, _e("strong", null, "Paragon List"), " (level 200+). An Omega Pickaxe, 2 voucher paper, 2 rank pens, Paragon dye, 32 Ultra Enchanted Primal Ore and $500,000. Unlocks the ", _e("strong", null, "Paragon"), " voucher for $20,000,000."), _e("p", null, "After the last list his shop stays open for life so you can revisit anything you missed."))
+    }, {
+      h: 'Story Quests',
+      body: _e(_F, null, _e("p", null, "Side quests with full dialogue and named rewards:"), _e("ul", null, _e("li", null, _e("strong", null, "A Rocky Relationship"), " (Cave). Reunite Cat and her husband Tim. A shady merchant demands $50,000 for the stolen gemstones, pay up or fight him. Rewards Tim's custom pickaxe and $10,000."), _e("li", null, _e("strong", null, "Inferno's Debt"), " (Nether). Serve the demon Inferno, duel Hades or betray your way to power. Branching paths pay out big money, a boss pet and a legendary relic."), _e("li", null, _e("strong", null, "Lumberjack"), ". Bring enchanted oak and birch for the LumberJack's Axe (Efficiency 15, Fortune 5, unbreakable)."), _e("li", null, _e("strong", null, "Blacksmith"), ". Bring enchanted diamonds, gold and emeralds for the Forgeborn Blade (Sharpness 12, grants Speed on hit)."), _e("li", null, _e("strong", null, "Lost Kitty"), ". Help an old lady find her cat Mochi for $5,000.")))
     }]
   },
   'mining-events': {
     title: 'Mining Events',
-    intro: 'Server wide events that drop in on the hour.',
+    intro: 'Server wide events that drop in every hour.',
     sections: [{
       h: 'How it Works',
-      body: /*#__PURE__*/React.createElement("p", null, "Every hour a random block type is chosen. Players race to mine that block. The first to hit the target count wins the round.")
-    }]
-  },
-  'skills': {
-    title: 'Skills',
-    intro: 'Five skills track different ways you play and pay you for leveling each one.',
-    sections: [{
-      h: 'The Skills',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Mining"), " levels as you break blocks"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Combat"), " levels as you kill mobs"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Bosses"), " levels as you defeat bosses"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Experience"), " levels as you gain XP from any source"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Taming"), " levels as you raise pet rarities and unlock pet abilities"))
-    }, {
-      h: 'Rewards',
-      body: /*#__PURE__*/React.createElement("p", null, "Every skill level pays out money and PrimalMines XP. So leveling Skills feeds your prestige threshold and your wallet at once.")
-    }]
-  },
-  'ranks-free': {
-    title: 'Free Ranks',
-    intro: 'Four ranks you earn through play. They unlock quality of life and progression perks.',
-    sections: [{
-      h: 'The Ladder',
-      body: /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Rank"), /*#__PURE__*/React.createElement("th", null, "Color"), /*#__PURE__*/React.createElement("th", null, "Unlock"), /*#__PURE__*/React.createElement("th", null, "Key Perks"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Catastro")), /*#__PURE__*/React.createElement("td", null, "Purple"), /*#__PURE__*/React.createElement("td", null, "Default"), /*#__PURE__*/React.createElement("td", null, "Starter rank. Base permissions.")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Gladiator")), /*#__PURE__*/React.createElement("td", null, "Orange"), /*#__PURE__*/React.createElement("td", null, "Dragon Quest Catastro List"), /*#__PURE__*/React.createElement("td", null, "/autocompress, 2 vaults, colored name")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Sentinel")), /*#__PURE__*/React.createElement("td", null, "Blue"), /*#__PURE__*/React.createElement("td", null, "Dragon Quest Gladiator List"), /*#__PURE__*/React.createElement("td", null, "More vaults, more homes, particle trail")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Paragon")), /*#__PURE__*/React.createElement("td", null, "Red"), /*#__PURE__*/React.createElement("td", null, "Dragon Quest Sentinel List"), /*#__PURE__*/React.createElement("td", null, "/supercompress, 5 vaults, 4 homes, white chatcolor, booster activation"))))
-    }, {
-      h: 'What You Do Not Get',
-      body: /*#__PURE__*/React.createElement("p", null, "Free ranks never include /fly, /feedall, /healall, /resetmine, /invsee or /ec. Those are paid rank perks. This is intentional so the paid ranks always feel meaningful while the free ranks still cover real progression.")
-    }]
-  },
-  'ranks-paid': {
-    title: 'Paid Ranks',
-    intro: 'Six tiers each stacking on top of the last.',
-    sections: [{
-      h: 'The Ladder',
-      body: /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Rank"), /*#__PURE__*/React.createElement("th", null, "Key Unique Perks"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "VIP")), /*#__PURE__*/React.createElement("td", null, "/feed, /boop, 5 vaults, 14 tags, /autocompress, yellow and white chatcolors")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "MVP")), /*#__PURE__*/React.createElement("td", null, "/fly, 10 vaults, /sethome, /heal, blue chatcolors plus all VIP")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Celestial")), /*#__PURE__*/React.createElement("td", null, "/resetmine, /feedall, /healall, 15 vaults, pink chatcolors plus all MVP")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Aethereal")), /*#__PURE__*/React.createElement("td", null, "/supercompress, 17 vaults, /back, Aethereal chatcolor plus all Celestial")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Immortal")), /*#__PURE__*/React.createElement("td", null, "/ec, /invsee, /prefix color change, 20 vaults, red chatcolors plus all Aethereal")), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("strong", null, "Primal")), /*#__PURE__*/React.createElement("td", null, "/ultracompress, 50 vaults, /claimboost on a 5 day cooldown, all chatcolors plus all Immortal"))))
-    }, {
-      h: 'Buying a Rank',
-      body: /*#__PURE__*/React.createElement("p", null, "Head to ", /*#__PURE__*/React.createElement("code", null, "store.primalmines.net"), ". Pick the rank. Pay. The rank applies in game within a minute. If anything ever goes wrong open a ticket in the Discord and a staff member will sort it.")
-    }]
-  },
-  'enchants': {
-    title: 'Custom Enchants',
-    intro: 'Two custom enchants live alongside the vanilla list.',
-    sections: [{
-      h: 'List',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Monopoly"), " gives more money per block broken. Top mining picks carry it at level 13."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Plunder"), " raises your chance to roll rare boss drops. Stack it on your combat gear before going boss hunting."))
-    }]
-  },
-  'store-info': {
-    title: 'Store',
-    intro: 'Three categories. Cosmetics, ranks and rank upgrades only.',
-    sections: [{
-      h: 'Where',
-      body: /*#__PURE__*/React.createElement("p", null, "The store lives at ", /*#__PURE__*/React.createElement("code", null, "store.primalmines.net"), ". It runs on Tebex which is the standard hosted checkout for Minecraft servers.")
-    }, {
-      h: 'What is For Sale',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Ranks"), ". The six paid ranks. VIP through Primal."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Rank Upgrades"), ". Pay the difference to move from your current paid rank up the ladder without rebuying."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Cosmetics"), ". Chat color bundles and tag bundles."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Chat color bundles"), ": Fire with 7 colors. Jungle with 4 colors. Aquatic with 3 colors. Celestial with 7 colors. Neutral with 5 colors."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Tag bundles"), ": VIP Tags Bundle, the Nature bundle, the Dark bundle. Plus individual tags like Sigma, Owner, Grinder, Supporter and Premium."))
-    }]
-  },
-  'commands': {
-    title: 'Commands Cheatsheet',
-    intro: 'Every player facing command with no permission required.',
-    sections: [{
-      h: 'Core',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/prestige"), " or ", /*#__PURE__*/React.createElement("code", null, "/rebirth"), " opens the prestige GUI"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/daily"), " opens the daily rewards GUI"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/menu"), " or ", /*#__PURE__*/React.createElement("code", null, "/m"), " opens the main menu"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/store"), " opens the rank store GUI"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/ranks"), " browse every server rank and its perks"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/stats"), " view your stats or another players"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/balance"), " view your balance or another players"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/playtime"), " view your playtime or another players"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/stash"), " claim items that overflowed your inventory"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/convert"), " turn balance into paper money items"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/mineshop"), " open the shop for the mine you are in"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/prefix"), " change your prefix"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/glow"), " toggle your glow effect"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/offhand"), " swap held item to off hand"))
-    }, {
-      h: 'Help and Info',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/help"), " opens the help GUI"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/?"), " alias for help"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/info"), " server info"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/information"), " server info"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/health"), " check your health or another players"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/staff"), " or ", /*#__PURE__*/React.createElement("code", null, "/apply"), " link to Discord staff applications"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/ip"), " shows the server IP as a clickable link"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/addfavorite"), " clickable prompt to favorite the server"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/ad"), " broadcast a paid rank advertisement"))
-    }, {
-      h: 'Discord Link',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/link"), " generate a Discord link code"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/unlink"), " remove your Discord link"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/claimreward"), " claim a pending Discord link reward"))
-    }, {
-      h: 'Warps',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/spawn"), " warp back to the hub"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/overworld"), " warp to the Overworld mines"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/cave"), " warp to the Cave dimension"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/nether"), " warp to the Nether dimension"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/end"), " warp to the End dimension"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/aether"), " warp to the Aether dimension"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/abyss"), " warp to the Abyss dimension"))
-    }]
-  },
-  'daily-rewards': {
-    title: 'Daily Rewards',
-    intro: 'Free rewards every day. Open the menu with /daily.',
-    sections: [{
-      h: 'How it Works',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Open the menu with ", /*#__PURE__*/React.createElement("code", null, "/daily"), ". The GUI has three tiers of rewards. Tier one is the crate row that anyone can claim. Tier two is the free rank dailies. Tier three is the paid rank dailies."), /*#__PURE__*/React.createElement("p", null, "Each reward has its own cooldown so you can claim them one at a time as soon as each one resets. The cooldowns do not share. If you own a paid rank you can still claim your free rank tier on top of the paid one."))
-    }, {
-      h: 'Tier One Crates',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Daily Crate key"), " on a 16 hour cooldown"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Weekly Crate key"), " on a 7 day cooldown"))
-    }, {
-      h: 'Free Rank Dailies',
-      body: /*#__PURE__*/React.createElement("p", null, "Catastro, Gladiator, Sentinel and Paragon each have their own slot in the second tier. You need that rank or higher to claim the slot. Each one resets on its own 16 hour cooldown.")
-    }, {
-      h: 'Paid Rank Dailies',
-      body: /*#__PURE__*/React.createElement("p", null, "VIP, MVP, Celestial, Aethereal, Immortal and Primal each have their own slot in the third tier. Same rule as free ranks. Same 16 hour cooldown per slot. Higher ranks always include the lower ranks slots so a Primal player can claim all six.")
-    }, {
-      h: 'Primal Bonus Commands',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/claimboost"), " grants one 2x block booster and one 2x XP booster every 5 days"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("code", null, "/claim"), " grants $20,000 and 2 Chatcolor crate keys every 3 days"))
+      body: _e(_F, null, _e("p", null, "Every hour on the hour a Mining Event begins and runs for 15 minutes. A random block type is chosen and a boss bar shows you the target block, the time left and your personal count."), _e("p", null, "It is not a race to a fixed number, whoever mines the MOST of that block before time runs out wins. The top three miners take the prizes."))
     }]
   },
   'economy': {
@@ -1393,122 +1230,213 @@ const GUIDES = {
     intro: 'Cash lives in your balance. Notes let you carry it.',
     sections: [{
       h: 'Your Balance',
-      body: /*#__PURE__*/React.createElement("p", null, "Your money sits in your EssentialsX balance. It is digital. You spend it through shop GUIs, voucher purchases and the prestige altar. Check it with ", /*#__PURE__*/React.createElement("code", null, "/balance"), " or look at the scoreboard.")
+      body: _e("p", null, "Your money sits in your server balance. Spend it through shop GUIs, the Keys Shop, voucher purchases and more. Check it with ", _e("code", null, "/balance"), " (or ", _e("code", null, "/bal"), ") and send money to other players with ", _e("code", null, "/pay"), ".")
     }, {
       h: 'Cash Notes',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Open ", /*#__PURE__*/React.createElement("code", null, "/convert"), " to turn balance into physical paper notes you can hand carry, drop or trade. Pick a denomination: $1,000 or $10,000 or $100,000 or $1,000,000. The matching amount comes off your balance and the note item drops into your inventory."), /*#__PURE__*/React.createElement("p", null, "To cash a note back in just hold the paper item and right click. The note vanishes and the cash returns to your balance instantly."))
+      body: _e(_F, null, _e("p", null, "Open ", _e("code", null, "/convert"), " to turn balance into physical paper notes you can carry, drop or trade. Preset denominations run $1,000, $10,000, $100,000, $1,000,000, $10,000,000 and $100,000,000 and a custom amount button lets you pick any value."), _e("p", null, "The amount comes off your balance and the note drops into your inventory. To cash one back in, hold the note and right click, it vanishes and the money returns instantly."))
     }, {
       h: 'Why You Care',
-      body: /*#__PURE__*/React.createElement("p", null, "Cash notes are the main way players trade money without using ", /*#__PURE__*/React.createElement("code", null, "/pay"), ". Drop them in trade chests, hand them across the table, leave them as gifts in chests. The note is the receipt.")
-    }]
-  },
-  'stash': {
-    title: 'Stash',
-    intro: 'The safety net for any item that could not fit in your inventory.',
-    sections: [{
-      h: 'How it Fills Up',
-      body: /*#__PURE__*/React.createElement("p", null, "When a reward drop, a shop purchase, a quest payout or a pet drop would land in your inventory but you have no free slots the item goes into your Stash instead. You will see an actionbar message telling you to collect it.")
-    }, {
-      h: 'Claiming Items',
-      body: /*#__PURE__*/React.createElement("p", null, "Open ", /*#__PURE__*/React.createElement("code", null, "/stash"), " to see everything that has piled up. The GUI is sized dynamically based on how many items are in there. Click any item to send it to your inventory. If your inventory is still full it tells you on the actionbar and the item stays in the stash.")
-    }, {
-      h: 'Bulk Pickup',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/pickupstash"), " to grab everything from the stash at once. Anything that does not fit stays put. This is the fastest way to clear the stash after a long mining session.")
+      body: _e("p", null, "Cash notes are how players trade money by hand without ", _e("code", null, "/pay"), ". They are also perfect for secret off the books trades. Drop them in trade chests, hand them across the table or leave them as gifts. The note is the receipt.")
     }]
   },
   'keys-shop': {
     title: 'Keys Shop',
-    intro: 'Spend in game cash for crate keys. Open with /keys.',
+    intro: 'Spend in game cash on crate keys. Open with /keys.',
     sections: [{
-      h: 'What is For Sale',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "The Keys Shop is a cash for keys exchange. Type ", /*#__PURE__*/React.createElement("code", null, "/keys"), " to open it. Stock is fixed and prices are listed on each item."), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Dimension keys")), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Overworld key $5,000"), /*#__PURE__*/React.createElement("li", null, "Cave key $7,500"), /*#__PURE__*/React.createElement("li", null, "Nether key $10,000"), /*#__PURE__*/React.createElement("li", null, "End key $15,000"), /*#__PURE__*/React.createElement("li", null, "Aether key $20,000")), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Free rank keys")), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Catastro key $40,000"), /*#__PURE__*/React.createElement("li", null, "Gladiator key $50,000"), /*#__PURE__*/React.createElement("li", null, "Sentinel key $60,000"), /*#__PURE__*/React.createElement("li", null, "Paragon key $70,000")), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Themed keys")), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Food key $15,000"), /*#__PURE__*/React.createElement("li", null, "Pet key $50,000"), /*#__PURE__*/React.createElement("li", null, "Party key $35,000"), /*#__PURE__*/React.createElement("li", null, "Chatcolor key $750,000")), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Pet rarity keys")), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Common Pet key $10,000"), /*#__PURE__*/React.createElement("li", null, "Uncommon Pet key $25,000"), /*#__PURE__*/React.createElement("li", null, "Rare Pet key $50,000"), /*#__PURE__*/React.createElement("li", null, "Epic Pet key $100,000"), /*#__PURE__*/React.createElement("li", null, "Legendary Pet key $250,000"), /*#__PURE__*/React.createElement("li", null, "Mythic Pet key $500,000")))
+      h: 'How it Works',
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/keys"), " to open the cash for keys exchange. Left click an item to buy one; right click for a bulk menu (2, 4, 16, 32 or 64 at a time). Keys are delivered straight to your crates."), _e("p", null, "Prices are listed on each item. They are intentionally steep, keys are a money sink for the late game."))
     }, {
-      h: 'Not the Same as the Store',
-      body: /*#__PURE__*/React.createElement("p", null, "The Keys Shop is the in game cash for keys exchange. It is not the Tebex store. If you want to buy keys with real money use ", /*#__PURE__*/React.createElement("code", null, "store.primalmines.net"), ". If you want to spend hoarded server cash on key runs use ", /*#__PURE__*/React.createElement("code", null, "/keys"), ".")
+      h: 'Dimension and Rank Keys',
+      body: _e(_F, null, _e("p", null, _e("strong", null, "Dimension keys")), _e("ul", null, _e("li", null, "Overworld $7,500"), _e("li", null, "Cave $12,500"), _e("li", null, "Nether $20,000"), _e("li", null, "End $45,000"), _e("li", null, "Aether $100,000"), _e("li", null, "Abyss $500,000")), _e("p", null, _e("strong", null, "Free rank keys")), _e("ul", null, _e("li", null, "Catastro $200,000"), _e("li", null, "Gladiator $500,000"), _e("li", null, "Sentinel $1,000,000"), _e("li", null, "Paragon $2,000,000")), _e("p", null, _e("strong", null, "Paid rank keys")), _e("ul", null, _e("li", null, "VIP $100,000"), _e("li", null, "MVP $250,000"), _e("li", null, "Celestial $500,000"), _e("li", null, "Aethereal $750,000"), _e("li", null, "Immortal $1,000,000"), _e("li", null, "Primal $2,500,000")))
+    }, {
+      h: 'Pet and Themed Keys',
+      body: _e(_F, null, _e("p", null, _e("strong", null, "Pet rarity keys")), _e("ul", null, _e("li", null, "Common Pet $25,000"), _e("li", null, "Uncommon Pet $50,000"), _e("li", null, "Rare Pet $250,000"), _e("li", null, "Epic Pet $750,000"), _e("li", null, "Legendary Pet $1,500,000"), _e("li", null, "Mythic Pet $5,000,000")), _e("p", null, _e("strong", null, "Themed keys")), _e("ul", null, _e("li", null, "Party $2,500"), _e("li", null, "Compressor Voucher $1,500,000"), _e("li", null, "Chatcolor $2,500,000")))
+    }]
+  },
+  'crates': {
+    title: 'Crates',
+    intro: 'Open keys for randomized rewards.',
+    sections: [{
+      h: 'Opening Crates',
+      body: _e(_F, null, _e("p", null, "Crate blocks stand around spawn, each with a floating hologram. Right click a crate while holding its matching key to open it and play the reveal animation. Left click to preview every possible reward and its odds first."), _e("p", null, "If a key does not fit in your inventory, grab it later with ", _e("code", null, "/claimkeys"), "."))
+    }, {
+      h: 'Crate Types',
+      body: _e(_F, null, _e("p", null, "There are over 30 crates, grouped by theme:"), _e("ul", null, _e("li", null, _e("strong", null, "Dimension"), ", Overworld through Abyss, full of that dimension's blocks and consumables"), _e("li", null, _e("strong", null, "Rank"), ", Catastro to Paragon and VIP to Primal"), _e("li", null, _e("strong", null, "Pet rarity"), ", Common to Mythic, each giving a level 1 pet, plus a Special pet crate"), _e("li", null, _e("strong", null, "Themed"), ", Party, Chatcolor, Compressor Voucher and Vote"), _e("li", null, _e("strong", null, "Time based"), ", Daily, Weekly and Monthly")))
+    }]
+  },
+  'shops': {
+    title: 'Shops and Trading',
+    intro: 'Buy gear from mine shops and trade with other players.',
+    sections: [{
+      h: 'Mine Shops',
+      body: _e(_F, null, _e("p", null, "Open the shop for the mine you are standing in with ", _e("code", null, "/mineshop"), " (or ", _e("code", null, "/shop"), ") or by clicking the shop NPC in the mine. Each shop is paged into Armor, Pickaxes, Swords and Compressors."), _e("p", null, "Mine shops are barter shops: you trade items for items, for example, handing over enchanted blocks to receive the next pickaxe tier. Overflow goes safely to your stash."))
+    }, {
+      h: 'Auction House',
+      body: _e("p", null, "Type ", _e("code", null, "/ah"), " to open the Auction House, where players list items for sale to the whole server and buy what others have posted. It is the main way to trade rare gear and pets for cash.")
+    }, {
+      h: 'Direct Trades',
+      body: _e("p", null, "For a face to face swap, use the trade system to safely exchange items and money directly with another player, so neither side can scam the other.")
+    }]
+  },
+  'coinflip': {
+    title: 'Coinflip',
+    intro: 'Stake your cash on a 50/50 flip.',
+    sections: [{
+      h: 'How to Play',
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/cf bid <amount>"), " to post a coinflip. The stake leaves your balance immediately and your bid joins the open list."), _e("p", null, "Open ", _e("code", null, "/cf list"), " to see every open bid and click another player's flip to accept it. A random winner is chosen, takes double the stake and the result is broadcast. Cancel your own open bid with ", _e("code", null, "/cf delete"), "."))
+    }]
+  },
+  'daily-rewards': {
+    title: 'Daily and Playtime Rewards',
+    intro: 'Free rewards every day, plus one time playtime milestones.',
+    sections: [{
+      h: 'Daily Rewards',
+      body: _e(_F, null, _e("p", null, "Open ", _e("code", null, "/daily"), " for three tiers of rewards, each on its own cooldown that does not share with the others:"), _e("ul", null, _e("li", null, _e("strong", null, "Daily Crate"), " key, on a 16 hour cooldown, free for everyone"), _e("li", null, _e("strong", null, "Weekly Crate"), " key, on a 7 day cooldown"), _e("li", null, _e("strong", null, "Rank dailies"), ", one slot per rank (Catastro to Paragon and VIP to Primal), each on a 16 hour cooldown")), _e("p", null, "Higher ranks include the lower rank slots, so a Primal player can claim every paid slot."))
+    }, {
+      h: 'Primal Bonus Commands',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/claimboost"), " grants a 2x block booster and a 2x XP booster every 5 days"))
+    }, {
+      h: 'Playtime Rewards',
+      body: _e("p", null, "Type ", _e("code", null, "/playtimerewards"), " for one time milestones that unlock as your total playtime climbs, from 15 minutes all the way to 100 hours. Each tier hands out cash and crate keys, claimed once.")
+    }]
+  },
+  'stash': {
+    title: 'Storage and Stash',
+    intro: 'Your safety net and your personal vaults.',
+    sections: [{
+      h: 'The Stash',
+      body: _e(_F, null, _e("p", null, "When a drop, shop purchase, quest payout or pet reward cannot fit in your inventory, it goes into your Stash instead and an actionbar message tells you. Open ", _e("code", null, "/stash"), " to see everything waiting and click an item to collect it."), _e("p", null, "Type ", _e("code", null, "/pickupstash"), " to grab everything at once, the fastest way to clear it after a long mining session. Anything that still does not fit stays put."))
+    }, {
+      h: 'Player Vaults',
+      body: _e("p", null, "Type ", _e("code", null, "/pv"), " to open your personal vaults, extra storage pages that persist between sessions. The number of vaults you have scales with your rank.")
+    }, {
+      h: 'Ender Chest',
+      body: _e("p", null, "Higher paid ranks can open their ender chest anywhere with ", _e("code", null, "/ec"), " for quick, portable storage.")
     }]
   },
   'leaderboards': {
     title: 'Leaderboards',
-    intro: 'Weekly stats that decide the weekly competition.',
+    intro: 'Weekly competition for the top miners.',
     sections: [{
-      h: 'The Four Stats',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Blocks Mined"), " counts ores, logs, stone, deepslate and dimensional decoration blocks"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Player Kills"), " counts PvP kills"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Playtime"), " ticks up every 5 minutes for every online player"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Bosses Killed"), " counts every boss kill across every dimension"))
+      h: 'The Weekly Boards',
+      body: _e("p", null, "The weekly leaderboards track blocks mined, player kills, playtime and bosses killed, shown on holograms at the leaderboard area. They reset every week.")
     }, {
-      h: 'Weekly Reset',
-      body: /*#__PURE__*/React.createElement("p", null, "The board resets on a schedule with a server wide broadcast. Top spots win the weekly competition reward when the staff runs one.")
+      h: 'Prizes',
+      body: _e("p", null, "Top finishers each week win crate keys and cash. The number one player also takes a $10 store gift card.")
     }, {
       h: 'How to Check',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/leaderboards"), " or warp to the leaderboards NPC at spawn. Your lifetime stats live in ", /*#__PURE__*/React.createElement("code", null, "/stats"), " and are separate from the weekly board.")
+      body: _e("p", null, "Type ", _e("code", null, "/leaderboards"), " to warp straight to the boards. Your own lifetime numbers live in ", _e("code", null, "/stats"), ", which you can also check on other players.")
     }]
   },
   'settings': {
     title: 'Settings and PvP',
-    intro: 'Toggle your personal preferences. Including PvP.',
+    intro: 'Toggle your personal preferences, including PvP.',
     sections: [{
       h: 'Opening the Menu',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/options"), " or ", /*#__PURE__*/React.createElement("code", null, "/settings"), " or ", /*#__PURE__*/React.createElement("code", null, "/setting"), ". The menu uses lime panes for enabled and red panes for disabled. Click any pane to flip it.")
+      body: _e("p", null, "Type ", _e("code", null, "/options"), " (or ", _e("code", null, "/settings"), "). Lime panes mean on, red panes mean off. Click any pane to flip it.")
     }, {
       h: 'What You Can Toggle',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "PvP"), " on or off. Off makes you immune to other players damage"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "XP gain sounds")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Full inventory warning")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Server broadcasts")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Item drops"), " on death"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Prestige messages")))
+      body: _e("ul", null, _e("li", null, _e("strong", null, "PvP"), " on or off, off makes you immune to other players' damage"), _e("li", null, _e("strong", null, "Full inventory warning")), _e("li", null, _e("strong", null, "Server broadcasts")), _e("li", null, _e("strong", null, "Item drops")), _e("li", null, _e("strong", null, "Chat game messages")), _e("li", null, _e("strong", null, "Prestige messages")), _e("li", null, _e("strong", null, "Auto Slayer spawn effects")))
     }, {
       h: 'Settings Stick',
-      body: /*#__PURE__*/React.createElement("p", null, "Every toggle saves to your account so your preferences carry across sessions. The settings only affect your own client. Turning off broadcasts mutes them for you. Turning off PvP makes you untouchable to players.")
+      body: _e("p", null, "Every toggle saves to your account and carries across sessions. Turning off broadcasts mutes them for you; turning off PvP makes you untouchable to other players.")
     }]
   },
   'cosmetics': {
-    title: 'Tags, Prefix and Glow',
+    title: 'Tags and Prefix',
     intro: 'Show off in chat and in the world.',
     sections: [{
       h: 'Tags',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Tags are colored brackets next to your name in chat and tab. The full list lives in ", /*#__PURE__*/React.createElement("code", null, "/tags"), ". There are two pages broken into themes like Elements, Renegade, Forces and Intensity. Each tag is locked behind its own permission so you unlock them through ranks, store bundles, vouchers or special rewards."), /*#__PURE__*/React.createElement("p", null, "Click any unlocked tag in the menu to equip it. Tags stack on top of your rank prefix and your chatcolor."))
+      body: _e(_F, null, _e("p", null, "Tags are bracketed words shown after your name. Open ", _e("code", null, "/tags"), " (also ", _e("code", null, "/tag"), " or ", _e("code", null, "/suffix"), ") for two pages of them, grouped into themes. Each tag is locked behind its own permission, so you unlock them through ranks, store bundles, vouchers and special rewards."), _e("p", null, "Click any unlocked tag to equip it. There is a reset option to clear your tag."))
     }, {
       h: 'Custom Prefix Color',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Immortal and Primal rank holders can change the color of their rank prefix. Open ", /*#__PURE__*/React.createElement("code", null, "/prefix"), ". Roughly 26 color options from red through dark purple. Pick one and your rank tag flips to that shade for everyone."), /*#__PURE__*/React.createElement("p", null, "Lower ranks can still see the menu but cannot pick a color. There is a Reset option that puts you back on the default rank color."))
+      body: _e(_F, null, _e("p", null, "Immortal and Primal rank holders can recolor their rank prefix. Open ", _e("code", null, "/prefix"), " for around 26 color options from red through dark purple, plus a Reset to go back to the default."), _e("p", null, "Lower ranks can open the menu but cannot pick a color until they reach Immortal."))
     }, {
-      h: 'Glow',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Glow puts a colored outline around your player model so other players can see your silhouette through walls. Each color is tied to a permission you earn through ranks or the store."), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Yellow"), " VIP"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Aqua"), " MVP"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Red"), " Immortal"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Green"), " Primal"), /*#__PURE__*/React.createElement("li", null, "Extras for store bundles: white, blue, orange, gray and purple")), /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/glow color"), " where color is the one you want. The change is instant. Bare ", /*#__PURE__*/React.createElement("code", null, "/glow"), " opens a small menu shell but most players just type the color directly."))
+      h: 'Chat Colors',
+      body: _e("p", null, "Open ", _e("code", null, "/chatcolor"), " (or ", _e("code", null, "/color"), ") to change the color of your chat messages. Gray is free for everyone; the rest are unlocked through ranks, store bundles and Chatcolor crate keys.")
     }]
   },
   'warps': {
-    title: 'Warps',
-    intro: 'Your shortcut to every dimension and key location.',
+    title: 'Warps and Dimensions',
+    intro: 'Your shortcut to every mining dimension.',
     sections: [{
       h: 'Opening the Menu',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/warps"), " to open the warp GUI. The menu lists every dimension you can travel to plus key locations like crates and leaderboards."), /*#__PURE__*/React.createElement("p", null, "You can also type ", /*#__PURE__*/React.createElement("code", null, "/spawn"), " to jump back to the hub at any time or ", /*#__PURE__*/React.createElement("code", null, "/warp name"), " to skip the menu."))
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/warps"), " for the warp GUI, which lists every dimension plus shortcuts to spawn, the crates and the leaderboards. Locked dimensions show what you need to enter them."), _e("p", null, "You can also type ", _e("code", null, "/spawn"), " to return to the hub at any time."))
     }, {
-      h: 'What is Open to You',
-      body: /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Spawn"), " the hub. Always open."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Cave"), ", ", /*#__PURE__*/React.createElement("strong", null, "Nether"), ", ", /*#__PURE__*/React.createElement("strong", null, "End"), ", ", /*#__PURE__*/React.createElement("strong", null, "Aether"), ", ", /*#__PURE__*/React.createElement("strong", null, "Abyss"), " the main mining dimensions. All open to everyone."), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Deepdark"), " requires Prestige 1 to enter"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Rank mines"), " (VIP, MVP, Elite, Mythic, Primal) require the matching purchased rank"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Crates"), " and ", /*#__PURE__*/React.createElement("strong", null, "Leaderboards"), " shortcuts to those zones at spawn"))
+      h: 'The Dimensions',
+      body: _e(_F, null, _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Dimension"), _e("th", null, "Command"), _e("th", null, "Access"))), _e("tbody", null, _e("tr", null, _e("td", null, "Overworld"), _e("td", null, "At spawn"), _e("td", null, "Open")), _e("tr", null, _e("td", null, "Cave"), _e("td", null, _e("code", null, "/cave")), _e("td", null, "Open")), _e("tr", null, _e("td", null, "Nether"), _e("td", null, _e("code", null, "/nether")), _e("td", null, "Open")), _e("tr", null, _e("td", null, "End"), _e("td", null, _e("code", null, "/end")), _e("td", null, "Open")), _e("tr", null, _e("td", null, "Aether"), _e("td", null, _e("code", null, "/aether")), _e("td", null, "Open")), _e("tr", null, _e("td", null, "Abyss"), _e("td", null, _e("code", null, "/abyss")), _e("td", null, "Open")), _e("tr", null, _e("td", null, "The Depths"), _e("td", null, _e("code", null, "/depths")), _e("td", null, "Prestige 1")), _e("tr", null, _e("td", null, "The Deep Dark"), _e("td", null, _e("code", null, "/deepdark")), _e("td", null, "Prestige 2")))), _e("p", null, "Overworld through Abyss are open to everyone. The two prestige dimensions unlock as you rebirth."))
     }]
   },
-  'bounty': {
-    title: 'Bounty',
-    intro: 'Put a price on someones head. Cash in when they die.',
+  'ranks-free': {
+    title: 'Free Ranks',
+    intro: 'Four ranks you earn through the Dragon Quest.',
     sections: [{
-      h: 'Placing a Bounty',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/bounty add player amount"), " to put a price on a target. The money leaves your balance immediately and rides on that player until somebody kills them in PvP."), /*#__PURE__*/React.createElement("p", null, "Multiple players can stack bounties on the same target. The pool keeps growing until the target dies."))
+      h: 'The Ladder',
+      body: _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Rank"), _e("th", null, "Unlock"), _e("th", null, "Key Perks (shown in /ranks)"))), _e("tbody", null, _e("tr", null, _e("td", null, _e("strong", null, "Catastro")), _e("td", null, "Dragon Quest + $750k"), _e("td", null, "2 vaults, 1 home, white chatcolor, Catastro prefix")), _e("tr", null, _e("td", null, _e("strong", null, "Gladiator")), _e("td", null, "Dragon Quest + $2.5M"), _e("td", null, "3 vaults, 2 homes, /autocompress")), _e("tr", null, _e("td", null, _e("strong", null, "Sentinel")), _e("td", null, "Dragon Quest + $7.5M"), _e("td", null, "4 vaults, 3 homes, /autocompress, /nick")), _e("tr", null, _e("td", null, _e("strong", null, "Paragon")), _e("td", null, "Dragon Quest + $20M"), _e("td", null, "5 vaults, 4 homes, /autocompress, /supercompress"))))
     }, {
-      h: 'Claiming a Bounty',
-      body: /*#__PURE__*/React.createElement("p", null, "When the bounty target dies to another player the full pot goes to the killer and the server broadcasts the payout. The bounty resets to zero. The target can play their way back into the danger zone if anyone places a new one.")
+      h: 'How You Earn Them',
+      body: _e("p", null, "Each free rank is unlocked through the Dragon Quest chain, turn in that rank's shopping list to Dragon13215, then buy the voucher he unlocks. Right click the voucher to apply the rank. See the Quests guide for the full list of materials and level requirements.")
+    }]
+  },
+  'ranks-paid': {
+    title: 'Paid Ranks',
+    intro: 'Six tiers, each stacking on top of the last.',
+    sections: [{
+      h: 'The Ladder',
+      body: _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Rank"), _e("th", null, "Key Unique Perks (shown in /ranks)"))), _e("tbody", null, _e("tr", null, _e("td", null, _e("strong", null, "VIP")), _e("td", null, "/feed, /boop, 5 vaults, /autocompress, yellow and white chatcolors, 14 tags")), _e("tr", null, _e("td", null, _e("strong", null, "MVP")), _e("td", null, "/fly, /heal, 10 vaults, /sethome up to 10, blue chatcolors, plus all VIP")), _e("tr", null, _e("td", null, _e("strong", null, "Celestial")), _e("td", null, "/resetmine, /feedall, /healall, 15 vaults, pink chatcolors, plus all MVP")), _e("tr", null, _e("td", null, _e("strong", null, "Aethereal")), _e("td", null, "/supercompress, /back, 30 vaults, white and gray chatcolors, plus all Celestial")), _e("tr", null, _e("td", null, _e("strong", null, "Immortal")), _e("td", null, "/ec, /invsee, /prefix recolor, 40 vaults, red chatcolors, plus all Aethereal")), _e("tr", null, _e("td", null, _e("strong", null, "Primal")), _e("td", null, "/ultracompress, 50 vaults, /claimboost every 5 days, every chatcolor, plus all Immortal"))))
     }, {
-      h: 'Checking the Price',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/bounty check player"), " to see how much is currently on that player. There is no cap so a slippery target can become a moving jackpot.")
+      h: 'Buying a Rank',
+      body: _e("p", null, "Head to ", _e("code", null, "store.primalmines.net"), ", pick the rank and pay. It applies in game within a minute. You can also pay the difference to upgrade between paid ranks without rebuying. If anything goes wrong, open a ticket in the Discord.")
+    }]
+  },
+  'enchants': {
+    title: 'Custom Enchants',
+    intro: 'Custom enchants live alongside the vanilla list.',
+    sections: [{
+      h: 'The Enchants',
+      body: _e("ul", null, _e("li", null, _e("strong", null, "Monopoly"), ", more money per block broken. The top mining picks carry it at high levels."), _e("li", null, _e("strong", null, "Plunder"), ", raises your boss drop rolls by 1% per level (up to Plunder 10). Stack it on your boss weapon before hunting."), _e("li", null, _e("strong", null, "Trench"), ", breaks a vein of extra blocks per swing, each routed through your full Fortune and compression."))
     }]
   },
   'discord-link': {
     title: 'Discord Link',
-    intro: 'Connect your Minecraft and Discord accounts. Get rewarded.',
+    intro: 'Connect Minecraft and Discord. Get rewarded.',
     sections: [{
       h: 'How to Link',
-      body: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/link"), " in game to get a 6 character code. Open the PrimalMines Discord. Click the Link Account button and paste the code. Rejoin the server."), /*#__PURE__*/React.createElement("p", null, "The first time you link you receive $10,000 plus 3 Rare Pet Keys."))
-    }, {
-      h: 'Claim Reward Later',
-      body: /*#__PURE__*/React.createElement("p", null, "If your inventory was full when you joined after linking, the reward will be waiting. Type ", /*#__PURE__*/React.createElement("code", null, "/claimreward"), " to grab it.")
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/link"), " in game for a 6 character code (it expires after 10 minutes). Open the PrimalMines Discord, submit the code, then rejoin the server."), _e("p", null, "The first time you link you receive $10,000 plus 3 Rare Pet Keys."))
     }, {
       h: 'Unlinking',
-      body: /*#__PURE__*/React.createElement("p", null, "Type ", /*#__PURE__*/React.createElement("code", null, "/unlink"), " to remove the link. You can re-link any time but the first time reward only pays out once.")
+      body: _e("p", null, "Type ", _e("code", null, "/unlink"), " to remove the link. You can re-link any time, but the first time reward only pays out once.")
+    }]
+  },
+  'store-info': {
+    title: 'Store',
+    intro: 'Support the server for ranks, cosmetics and permissions.',
+    sections: [{
+      h: 'Where',
+      body: _e("p", null, "The store lives at ", _e("code", null, "store.primalmines.net"), ". It runs on Tebex, the standard hosted checkout for Minecraft servers.")
     }, {
-      h: 'Why Link',
-      body: /*#__PURE__*/React.createElement("p", null, "Linking unlocks Discord-only announcements, sync of your rank tag between Minecraft and Discord and access to gated channels. Some seasonal rewards drop only to linked accounts.")
+      h: 'What is For Sale',
+      body: _e(_F, null, _e("p", null, _e("strong", null, "Ranks"), ", the six paid ranks, VIP through Primal."), _e("p", null, _e("strong", null, "Rank upgrades"), ", pay the difference to move up the paid ladder without rebuying."), _e("p", null, _e("strong", null, "Permissions"), ", standalone unlocks like /fly and the auto, super and ultra compressors."), _e("p", null, _e("strong", null, "Cosmetics"), ", chat color bundles and tag bundles."), _e("p", null, "Anything you can buy with real money here can also be earned in game over time. The store just speeds it up and keeps the server running."))
+    }]
+  },
+  'commands': {
+    title: 'Commands Cheatsheet',
+    intro: 'Every player facing command in one place.',
+    sections: [{
+      h: 'Core',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/menu"), " or ", _e("code", null, "/m"), " the main menu"), _e("li", null, _e("code", null, "/help"), " the help GUI"), _e("li", null, _e("code", null, "/prestige"), " or ", _e("code", null, "/rebirth"), " prestige GUI"), _e("li", null, _e("code", null, "/skills"), " skills menu"), _e("li", null, _e("code", null, "/quests"), " weekly challenges"), _e("li", null, _e("code", null, "/daily"), " daily rewards"), _e("li", null, _e("code", null, "/playtimerewards"), " playtime milestones"), _e("li", null, _e("code", null, "/stats"), " your stats or another player's"), _e("li", null, _e("code", null, "/balance"), " or ", _e("code", null, "/bal"), " your balance"), _e("li", null, _e("code", null, "/playtime"), " your playtime"))
+    }, {
+      h: 'Economy and Items',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/convert"), " turn balance into cash notes"), _e("li", null, _e("code", null, "/pay"), " send money to a player"), _e("li", null, _e("code", null, "/keys"), " the keys shop"), _e("li", null, _e("code", null, "/claimkeys"), " claim overflow keys"), _e("li", null, _e("code", null, "/mineshop"), " or ", _e("code", null, "/shop"), " the current mine's shop"), _e("li", null, _e("code", null, "/ah"), " the auction house"), _e("li", null, _e("code", null, "/cf"), " coinflip"), _e("li", null, _e("code", null, "/stash"), " and ", _e("code", null, "/pickupstash"), " your stash"), _e("li", null, _e("code", null, "/pv"), " player vaults"))
+    }, {
+      h: 'Bosses, Pets and Mining',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " the slayer menu"), _e("li", null, _e("code", null, "/pets"), " your pet menu"), _e("li", null, _e("code", null, "/petshop"), " the pet shop"), _e("li", null, _e("code", null, "/compressors"), " the compressor menu"), _e("li", null, _e("code", null, "/boost"), " the booster menu"))
+    }, {
+      h: 'Cosmetics and Settings',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/tags"), " your tags"), _e("li", null, _e("code", null, "/chatcolor"), " or ", _e("code", null, "/color"), " your chat color"), _e("li", null, _e("code", null, "/prefix"), " recolor your prefix (Immortal+)"), _e("li", null, _e("code", null, "/options"), " or ", _e("code", null, "/settings"), " toggle settings"), _e("li", null, _e("code", null, "/offhand"), " swap held item to off hand"), _e("li", null, _e("code", null, "/drop"), " toggle item dropping"))
+    }, {
+      h: 'Warps and Social',
+      body: _e("ul", null, _e("li", null, _e("code", null, "/spawn"), " back to the hub"), _e("li", null, _e("code", null, "/warps"), " the warp menu"), _e("li", null, _e("code", null, "/cave"), ", ", _e("code", null, "/nether"), ", ", _e("code", null, "/end"), ", ", _e("code", null, "/aether"), ", ", _e("code", null, "/abyss"), " dimension warps"), _e("li", null, _e("code", null, "/depths"), " and ", _e("code", null, "/deepdark"), " prestige dimensions"), _e("li", null, _e("code", null, "/leaderboards"), " the leaderboards"), _e("li", null, _e("code", null, "/store"), " the store link"), _e("li", null, _e("code", null, "/discord"), " the Discord invite"), _e("li", null, _e("code", null, "/link"), " and ", _e("code", null, "/unlink"), " Discord linking"))
     }]
   }
 };
@@ -1980,8 +1908,8 @@ function Features() {
     body: 'Lose your max gear. Gain a permanent block and XP multiplier plus a Prestige Coin to spend on lasting upgrades.'
   }, {
     icon: 'Trophy',
-    title: 'Boss Loot',
-    body: 'Every boss has its own loot table. Shards, gold and rare legendary gear roll on every kill.'
+    title: 'Slayer System',
+    body: 'Eight bosses. Summon, kill, level. Master each one to unlock a permanent perk that stacks across the whole roster.'
   }, {
     icon: 'Book',
     title: 'Real Quests',
@@ -1992,7 +1920,7 @@ function Features() {
     body: 'Monopoly stacks money per block. Plunder stacks your odds on rare boss drops. Both tuned to scale with prestige.'
   }, {
     icon: 'Paw',
-    title: '117 Pets',
+    title: '124 Pets',
     body: 'Seven rarities. Each pet has an ability and a passive stat boost. Some drop only from bosses.'
   }, {
     icon: 'Pickaxe',
@@ -2071,7 +1999,7 @@ function Journey() {
   }, {
     n: '06',
     name: 'Abyss',
-    body: 'Dark side of the shared map. Prestige altar at the end.'
+    body: 'Dark side of the shared map. The final dimension before prestige.'
   }, {
     n: '∞',
     name: 'Prestige',
@@ -2150,11 +2078,11 @@ function LootSection({
     className: "max-w-[1400px] mx-auto px-6 lg:px-10"
   }, /*#__PURE__*/React.createElement(SectionHead, {
     num: "02",
-    label: "// COMBAT",
-    title: "Bosses drop",
-    italic: "loot tables.",
-    side: "02 / LOOT",
-    blurb: "Six named bosses. Each one rolls its table from top to bottom. The first chance that lands hands you the drop. Sample below. Full tables in the guide."
+    label: "// SLAYER",
+    title: "Eight bosses.",
+    italic: "Five levels each.",
+    side: "02 / SLAYER",
+    blurb: "Slayer is the new boss system. Open /slayer to see your progression across all 8 bosses. Summon. Kill. Level. Master each one for a permanent perk."
   }), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-12 gap-6 lg:gap-10 reveal"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2295,32 +2223,41 @@ function LootSection({
     style: {
       color: '#a5b6a8'
     }
-  }, "// 06 BOSSES"), /*#__PURE__*/React.createElement("h3", {
+  }, "// 08 BOSSES \xB7 40 LEVELS"), /*#__PURE__*/React.createElement("h3", {
     className: "editorial mt-2",
     style: {
       fontSize: '2.4rem',
       color: '#f0fff5',
       lineHeight: 1
     }
-  }, "Pollum. Viper. Tinc.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+  }, "Pollum. Viper. Tinc. Xenon.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     className: "editorial-italic",
     style: {
       color: '#3dff5b'
     }
-  }, "Xenon. Adam. Malacher.")), /*#__PURE__*/React.createElement("p", {
+  }, "Adam. Malacher. Dredge. Vexor.")), /*#__PURE__*/React.createElement("p", {
     className: "mt-5",
     style: {
       color: '#b3c7b7',
       fontSize: '1rem',
       lineHeight: 1.7
     }
-  }, "Bring a sword. Bring a friend. The boss rolls each drop tier in order and stops at the first one that hits."), /*#__PURE__*/React.createElement("button", {
+  }, "Summon a boss with ", /*#__PURE__*/React.createElement("code", {
+    style: {
+      background: 'rgba(61,255,91,0.1)',
+      padding: '2px 8px',
+      borderRadius: '5px',
+      color: '#a5ffb8',
+      fontSize: '0.92em',
+      fontFamily: 'JetBrains Mono, monospace'
+    }
+  }, "/slayer"), ". Each kill rolls one drop. Level the boss five times for a permanent perk."), /*#__PURE__*/React.createElement("button", {
     onClick: () => onNavigate('guides'),
     className: "btn btn-ghost mt-7",
     style: {
       alignSelf: 'flex-start'
     }
-  }, "See all loot tables ", /*#__PURE__*/React.createElement(Icon.Arrow, {
+  }, "See the full system ", /*#__PURE__*/React.createElement(Icon.Arrow, {
     className: "w-3.5 h-3.5"
   }))))));
 }
@@ -2362,7 +2299,7 @@ function PetPeek({
   }, /*#__PURE__*/React.createElement("button", {
     onClick: () => onNavigate('guides'),
     className: "btn btn-acid"
-  }, "Browse all 117 pets ", /*#__PURE__*/React.createElement(Icon.Arrow, {
+  }, "Browse all 124 pets ", /*#__PURE__*/React.createElement(Icon.Arrow, {
     className: "w-3.5 h-3.5"
   })))));
 }
