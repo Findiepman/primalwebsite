@@ -1265,7 +1265,7 @@ const GUIDES = {
       body: _e(_F, null, _e("p", null, "There are around 30 talismans, each a collectible charm tied to a stat. Between them they cover:"), _e("ul", null, _e("li", null, "More block drops, more Fortune"), _e("li", null, "More level XP, skill XP and pet XP"), _e("li", null, "More money per block"), _e("li", null, "Bonus boss damage and better boss drops"), _e("li", null, "Extra health, armor, knockback resistance and permanent potion effects")), _e("p", null, "Rarer talismans hit harder, from Common up to Mythic. Each stat is capped, so stacking the same bonus has a ceiling and mixing effects is usually stronger than piling on one."))
     }, {
       h: 'Getting Talismans',
-      body: _e("p", null, "Talismans come from crates, events and special rewards. Collect them, upgrade your bag so you have the room, then build the loadout that fits how you play.")
+      body: _e("p", null, "You can obtain talisman by finding the primal mine portal hidden in the abyss. There you need to mine and do slayers to combine shards and resources into talisman.")
     }]
   },
   'bosses': {
