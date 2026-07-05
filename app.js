@@ -259,6 +259,10 @@ const GUIDE_CATEGORIES = [{
   name: 'Mining, Fortune and Compression',
   icon: 'Pickaxe'
 }, {
+  id: 'farming',
+  name: 'Farming',
+  icon: 'Star'
+}, {
   id: 'levels-xp',
   name: 'Levels and XP',
   icon: 'Bolt'
@@ -274,6 +278,10 @@ const GUIDE_CATEGORIES = [{
   id: 'pets',
   name: 'Pets',
   icon: 'Paw'
+}, {
+  id: 'talismans',
+  name: 'Talismans',
+  icon: 'Gem'
 }, {
   id: 'bosses',
   name: 'Slayer System',
@@ -295,12 +303,8 @@ const GUIDE_CATEGORIES = [{
   name: 'Economy and Cash Notes',
   icon: 'Gem'
 }, {
-  id: 'keys-shop',
-  name: 'Keys Shop',
-  icon: 'Cube'
-}, {
-  id: 'crates',
-  name: 'Crates',
+  id: 'keys-crates',
+  name: 'Keys and Crates',
   icon: 'Cube'
 }, {
   id: 'shops',
@@ -645,11 +649,6 @@ const PETS = [{
   ability: "Blinds all nearby enemies when you drop near death.",
   stats: []
 }, {
-  name: "Tax Collector",
-  rarity: "Epic",
-  ability: "Passively earns 2% of nearby players' currency gains.",
-  stats: []
-}, {
   name: "Ember Wolf",
   rarity: "Epic",
   ability: "Grants fire immunity and 35% chance to ignite attackers.",
@@ -979,6 +978,81 @@ const PETS = [{
   rarity: "Special",
   ability: "Prevents enemy healing, 20% chance to deal double melee damage, gains a stacking damage boost after each kill and spreads infection to nearby enemies.",
   stats: ["+12 max health", "+7 attack damage", "+3 armor toughness"]
+}, {
+  name: "Dirt Mole",
+  rarity: "Common",
+  ability: "Grants Haste while active, scaling with level.",
+  stats: []
+}, {
+  name: "Coin Critter",
+  rarity: "Uncommon",
+  ability: "Grants +2 Fortune while mining.",
+  stats: []
+}, {
+  name: "Glow Grub",
+  rarity: "Uncommon",
+  ability: "Grants +2 bonus level XP per block mined.",
+  stats: []
+}, {
+  name: "Drill Beetle",
+  rarity: "Uncommon",
+  ability: "Grants Haste while active, scaling with level.",
+  stats: []
+}, {
+  name: "Gilded Mole",
+  rarity: "Rare",
+  ability: "Grants +3 Fortune while mining.",
+  stats: []
+}, {
+  name: "Sage Toad",
+  rarity: "Rare",
+  ability: "Grants +3 bonus level XP per block mined.",
+  stats: []
+}, {
+  name: "Quartz Lynx",
+  rarity: "Rare",
+  ability: "Grants Haste while active, scaling with level.",
+  stats: []
+}, {
+  name: "Penguin",
+  rarity: "Rare",
+  ability: "A dapper arctic waddler that grants Speed.",
+  stats: []
+}, {
+  name: "Treasure Hog",
+  rarity: "Epic",
+  ability: "Grants +4 Fortune while mining.",
+  stats: []
+}, {
+  name: "Luna Moth",
+  rarity: "Epic",
+  ability: "Grants +4 bonus level XP per block mined.",
+  stats: []
+}, {
+  name: "Magma Golem",
+  rarity: "Epic",
+  ability: "Grants Haste while active and stacks with your tool's Fortune.",
+  stats: []
+}, {
+  name: "Midas Hound",
+  rarity: "Legendary",
+  ability: "Grants +5 Fortune while mining.",
+  stats: []
+}, {
+  name: "Ancient Sage",
+  rarity: "Legendary",
+  ability: "Grants +5 bonus level XP per block mined.",
+  stats: []
+}, {
+  name: "Tunnel Rat",
+  rarity: "Special",
+  ability: "Permanent Haste 100 and +10 Fortune, with a 20% chance at max level to vein mine a 4x4x4 area.",
+  stats: []
+}, {
+  name: "Syrax",
+  rarity: "Special",
+  ability: "Fire immune, chance to ignite and thorn-burn attackers, and a damage boost after every kill. Drops at 0.1% from the Syrax slayer boss.",
+  stats: []
 }];
 const RARITY_ORDER = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic', 'Special'];
 function PetRoster() {
@@ -1068,7 +1142,7 @@ const GUIDES = {
     intro: 'Mining is the heart of progression. Here is how every block pays you.',
     sections: [{
       h: 'How Mining Pays',
-      body: _e(_F, null, _e("p", null, "Every mineable block you break in a mine rewards you several ways at once: money (boosted by the Monopoly enchant), PrimalMines level XP, Mining skill XP and XP for your active pet."), _e("p", null, "There is a safety cap of 100,000 items from any single block break so extreme Fortune never lags the server."))
+      body: _e(_F, null, _e("p", null, "Every mineable block you break in a mine rewards you several ways at once: money (boosted by the Monopoly enchant), PrimalMines level XP, Mining skill XP and XP for your active pet."), _e("p", null, "There is a safety cap on how many items a single block break can produce, so extreme Fortune never lags the server."))
     }, {
       h: 'How Fortune Works',
       body: _e(_F, null, _e("p", null, "Drop count is your Fortune level plus one, multiplied by your prestige multiplier, any active resource booster, the block's own multiplier and your pet and talisman bonuses. The custom mining engine handles enormous Fortune values, so the late game keeps scaling."), _e("p", null, "Fortune is the enchant on your held pickaxe. There is no hard Fortune cap built into the mining engine, so higher tier pickaxes simply carry higher Fortune. Check your pickaxe lore to see its current enchants."))
@@ -1083,7 +1157,24 @@ const GUIDES = {
       body: _e(_F, null, _e("p", null, "Boosters multiply earnings or XP for everyone on the server for a limited time. Open the menu with ", _e("code", null, "/boost"), "."), _e("ul", null, _e("li", null, _e("strong", null, "Resource boosters"), " multiply how many blocks you collect: 2x lasts 40 minutes, 3x lasts 30 minutes."), _e("li", null, _e("strong", null, "XP boosters"), " do the same for level XP: 2x for 40 minutes, 3x for 30 minutes.")), _e("p", null, "Only one resource and one XP booster run at a time. Activating the same tier again adds its time to the timer. Find boosters in crates, the daily menu and the store. Primal rank can fire free boosters with ", _e("code", null, "/claimboost"), " every 5 days."))
     }, {
       h: 'The Trench Enchant',
-      body: _e("p", null, "Trench is a mining enchant that breaks a connected vein of extra blocks around the one you hit, each routed through your full Fortune and compression. The vein grows with the enchant level. It is a special enchant, not part of the standard shop rotation.")
+      body: _e(_F, null, _e("p", null, "Trench is a mining enchant that breaks a connected wall of extra blocks around the one you hit, each routed through your full Fortune and compression. Trench I clears 2 extra blocks and every level adds 3 more, spreading out to a maximum of 6 blocks from the block you broke."), _e("p", null, "It is a special enchant, not part of the standard shop rotation."))
+    }]
+  },
+  'farming': {
+    title: 'Farming',
+    intro: 'A second grind with its own crops, its own bag and its own currency.',
+    sections: [{
+      h: 'How Farming Works',
+      body: _e(_F, null, _e("p", null, "Farming runs alongside mining as a separate economy. You harvest crops with a farming tool, they pour into your personal farm bag instead of dropping on the floor, and you sell them to the Farmer for Farm Coins. Farm Coins are their own currency, kept apart from your server balance."), _e("p", null, "You need a farming item to harvest. Swing a pickaxe or an axe at a crop and nothing happens; the crop is only collected by the right tool."))
+    }, {
+      h: 'The Crops',
+      body: _e(_F, null, _e("p", null, "Seven crops are harvestable, each worth a set number of Farm Coins:"), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Crop"), _e("th", null, "Sell Value"))), _e("tbody", null, _e("tr", null, _e("td", null, "Nether Wart"), _e("td", null, "4 coins")), _e("tr", null, _e("td", null, "Beetroot"), _e("td", null, "3 coins")), _e("tr", null, _e("td", null, "Pumpkin"), _e("td", null, "3 coins")), _e("tr", null, _e("td", null, "Wheat"), _e("td", null, "2 coins")), _e("tr", null, _e("td", null, "Carrot"), _e("td", null, "2 coins")), _e("tr", null, _e("td", null, "Potato"), _e("td", null, "2 coins")), _e("tr", null, _e("td", null, "Melon"), _e("td", null, "1 coin each, but a single melon block drops 3")))), _e("p", null, "Every crop you break replants itself after about 3 seconds, so a field keeps producing without you replanting by hand."))
+    }, {
+      h: 'The Farm Bag',
+      body: _e(_F, null, _e("p", null, "Open your bag with ", _e("code", null, "/farmbag"), " (or ", _e("code", null, "/bag"), "). It holds up to 1,000 crops total across every type. Harvested crops go straight in, so your inventory never clogs."), _e("p", null, "When the bag is full you get an actionbar warning and stop collecting, so empty it before a long session. Right click the Farmer NPC to open the bag and sell everything for Farm Coins. Check your balance any time with ", _e("code", null, "/farmcoins"), "."))
+    }, {
+      h: 'Hoe Enchants',
+      body: _e(_F, null, _e("p", null, "Two enchants turn a basic hoe into a real harvester:"), _e("ul", null, _e("li", null, _e("strong", null, "Harvesting"), " adds bonus crops to every break. Each harvest rolls a random bonus from zero up to the enchant level, so higher Harvesting means a bigger average haul."), _e("li", null, _e("strong", null, "Tiller"), " harvests a square of crops at once. Tiller I clears a 3x3, Tiller II a 5x5 and Tiller III a 7x7, and every block in that square gets its own Harvesting roll.")), _e("p", null, "The two stack. A Tiller III hoe with high Harvesting fills the bag fast."))
     }]
   },
   'levels-xp': {
@@ -1091,13 +1182,13 @@ const GUIDES = {
     intro: 'Your level decides when you can prestige and drives long term goals.',
     sections: [{
       h: 'How XP is Earned',
-      body: _e(_F, null, _e("p", null, "Every mined block grants level XP based on the block. Plain stone and netherrack give 1, ores give more (iron 4 to 5, gold 6 to 7, diamond 12 to 15, emerald 15 to 18) and the rarest blocks give a lot, Ancient Debris alone is 50 XP."), _e("p", null, "That base XP is then multiplied by your XP multiplier and any active XP booster."))
+      body: _e(_F, null, _e("p", null, "Every mined block grants level XP based on where it comes from, not what it is. Overworld, Cave, Nether and End blocks each give 1, Aether blocks give 2, Abyss blocks give 3, and the two prestige dimensions (Depths and Deep Dark) give 4."), _e("p", null, "That base XP is then multiplied by your XP multiplier and any active XP booster."))
     }, {
       h: 'Multipliers',
       body: _e("ul", null, _e("li", null, _e("strong", null, "Prestige"), " grants a permanent XP multiplier every time you rebirth."), _e("li", null, _e("strong", null, "XP boosters"), " stack 2x or 3x on top, server wide."), _e("li", null, _e("strong", null, "The Lapis region"), " gives 3x XP while you mine inside it."), _e("li", null, _e("strong", null, "The XP Talisman"), " (light blue dye in your off hand) gives 3x XP."))
     }, {
       h: 'The XP Curve',
-      body: _e("p", null, "XP needed per level follows an exponential curve starting at 100 and growing about 10% each level. There is no maximum level, so the climb never ends.")
+      body: _e("p", null, "XP needed per level follows an exponential curve, tuned so that reaching level 100 takes about 150,000 XP. From level 100 onward the cost holds flat at that amount, and there is no maximum level, so the climb never ends.")
     }, {
       h: 'Where it Shows',
       body: _e("p", null, "Your Minecraft XP bar is repurposed to show your PrimalMines level. The number is your level and the bar fills toward the next one.")
@@ -1142,7 +1233,7 @@ const GUIDES = {
   },
   'pets': {
     title: 'Pets',
-    intro: '124 collectible pets that follow you and boost your stats.',
+    intro: '138 collectible pets that follow you and boost your stats.',
     sections: [{
       h: 'How Pets Work',
       body: _e(_F, null, _e("p", null, "You equip one pet at a time from your Pet Menu (", _e("code", null, "/pets"), "). The pet floats beside you with its level shown on its name tag. While equipped, its ability and its passive stats are active."), _e("p", null, "Abilities trigger in different ways depending on the pet: some fire when you hit something, some when you take damage, some run as a constant aura, some after a kill, some while you mine and a few only when you sneak or stand still."))
@@ -1154,30 +1245,50 @@ const GUIDES = {
       body: _e("ul", null, _e("li", null, "Common"), _e("li", null, "Uncommon"), _e("li", null, "Rare"), _e("li", null, "Epic"), _e("li", null, "Legendary"), _e("li", null, "Mythic"), _e("li", null, "Special"))
     }, {
       h: 'How to Get Pets',
-      body: _e(_F, null, _e("p", null, "There are several routes:"), _e("ul", null, _e("li", null, _e("strong", null, "Pet Shop"), " (", _e("code", null, "/petshop"), ") sells Common through Legendary pets: Common $1,000, Uncommon $6,000, Rare $25,000, Epic $75,000, Legendary $500,000."), _e("li", null, _e("strong", null, "Pet crates and keys"), " from the Keys Shop and daily rewards, one per rarity. Mythic and Special pets come from these crates and from bosses."), _e("li", null, _e("strong", null, "Boss drops"), ", each of the eight Slayer bosses drops its matching pet at a 1% chance.")))
+      body: _e(_F, null, _e("p", null, "There are several routes:"), _e("ul", null, _e("li", null, _e("strong", null, "Pet Shop"), " (", _e("code", null, "/petshop"), ") sells Common through Legendary pets: Common $10,000, Uncommon $60,000, Rare $250,000, Epic $750,000, Legendary $1,500,000. Mythic and Special pets are not sold here."), _e("li", null, _e("strong", null, "Pet crates and keys"), " from the Keys Shop and daily rewards, one per rarity. Mythic and Special pets come from these crates and from bosses."), _e("li", null, _e("strong", null, "Boss drops"), ", each of the nine Slayer bosses drops its matching pet at a 0.1% chance (1 in 1,000).")))
     }, {
       h: 'Every Pet',
       body: _e(PetRoster, null)
     }]
   },
+  'talismans': {
+    title: 'Talismans',
+    intro: 'Passive charms you carry in a dedicated bag. Their bonuses stack.',
+    sections: [{
+      h: 'How Talismans Work',
+      body: _e(_F, null, _e("p", null, "Talismans are passive charm items that live in your own Talisman Bag, separate from your inventory. Every talisman in the bag is active at once, and their bonuses add together, so a full bag is a real power spike."), _e("p", null, "There is nothing to hold or equip in a hand slot. Once a talisman is in the bag its effect applies automatically while you play."))
+    }, {
+      h: 'The Talisman Bag',
+      body: _e(_F, null, _e("p", null, "Open the shop with ", _e("code", null, "/talismanshop"), " to view your bag and buy slot upgrades. The bag starts at 3 slots and expands through five paid tiers, running from $50,000 up to $5,000,000, so the more you invest the more talismans you can run together."))
+    }, {
+      h: 'What They Boost',
+      body: _e(_F, null, _e("p", null, "There are around 30 talismans, each a collectible charm tied to a stat. Between them they cover:"), _e("ul", null, _e("li", null, "More block drops, more Fortune"), _e("li", null, "More level XP, skill XP and pet XP"), _e("li", null, "More money per block"), _e("li", null, "Bonus boss damage and better boss drops"), _e("li", null, "Extra health, armor, knockback resistance and permanent potion effects")), _e("p", null, "Rarer talismans hit harder, from Common up to Mythic. Each stat is capped, so stacking the same bonus has a ceiling and mixing effects is usually stronger than piling on one."))
+    }, {
+      h: 'Getting Talismans',
+      body: _e("p", null, "Talismans come from crates, events and special rewards. Collect them, upgrade your bag so you have the room, then build the loadout that fits how you play.")
+    }]
+  },
   'bosses': {
     title: 'Slayer System',
-    intro: 'Eight bosses. Five levels each. SkyBlock style boss progression.',
+    intro: 'Nine bosses. Five levels each. SkyBlock style boss progression.',
     sections: [{
       h: 'Opening Slayer',
-      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " to open the menu, a 6 row chest titled Slayer Menu. A nether star at the top shows your Combined Slayer Level out of 40 (8 bosses x 5 levels of mastery)."), _e("p", null, "Bosses sit in progression order across two rows: Pollum, Viper, Tinc and Xenon on top, then Adam, Malacher, Dredge and Vexor. Each icon shows your Slayer Level in Roman numerals, your lifetime kills and your XP bar. Locked bosses tell you what you need."))
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " to open the menu, a 6 row chest titled Slayer Menu. A nether star at the top shows your Combined Slayer Level out of 45 (9 bosses x 5 levels of mastery)."), _e("p", null, "The bosses run in progression order: Pollum, Viper, Tinc and Xenon, then Adam, Malacher, Dredge and Vexor, and finally Syrax, the fire wyrm of the Fantasy realm. Each icon shows your Slayer Level in Roman numerals, your lifetime kills and your XP bar. Locked bosses tell you what you need."))
     }, {
       h: 'Unlocking Bosses',
-      body: _e("p", null, "Pollum is always open. Every other boss unlocks when you reach Slayer Level II on the one before it. The chain follows the dimensions: Pollum (Overworld), Viper (Cave), Tinc (Nether), Xenon (End), Adam (Aether), Malacher (Abyss), Dredge (Depths), Vexor (Deep Dark). You must stand in a Boss Area to summon.")
+      body: _e(_F, null, _e("p", null, "Each boss has two gates: you must be at Slayer Level II on the previous boss, and you must meet its level or prestige requirement. The chain follows the dimensions: Pollum (Overworld), Viper (Cave), Tinc (Nether), Xenon (End), Adam (Aether), Malacher (Abyss), Dredge (Depths), Vexor (Deep Dark) and Syrax (Fantasy)."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Boss"), _e("th", null, "Requirement"))), _e("tbody", null, _e("tr", null, _e("td", null, "Pollum"), _e("td", null, "Level 20")), _e("tr", null, _e("td", null, "Viper"), _e("td", null, "Level 35")), _e("tr", null, _e("td", null, "Tinc"), _e("td", null, "Level 50")), _e("tr", null, _e("td", null, "Xenon"), _e("td", null, "Level 60")), _e("tr", null, _e("td", null, "Adam"), _e("td", null, "Level 80")), _e("tr", null, _e("td", null, "Malacher"), _e("td", null, "Level 90")), _e("tr", null, _e("td", null, "Dredge"), _e("td", null, "Prestige 1")), _e("tr", null, _e("td", null, "Vexor"), _e("td", null, "Prestige 2")), _e("tr", null, _e("td", null, "Syrax"), _e("td", null, "Prestige 3")))), _e("p", null, "You must stand in a Boss Area to summon."))
     }, {
       h: 'Summoning',
-      body: _e(_F, null, _e("p", null, "Open a boss and press Summon and it spawns on top of you. Each summon costs money, taken from your balance the moment the boss appears. You can only have one of each boss out at a time; the lock clears after 10 minutes so a despawn or stolen kill never traps you."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Boss"), _e("th", null, "Summon Cost"))), _e("tbody", null, _e("tr", null, _e("td", null, "Pollum"), _e("td", null, "$2,500")), _e("tr", null, _e("td", null, "Viper"), _e("td", null, "$5,000")), _e("tr", null, _e("td", null, "Tinc"), _e("td", null, "$7,500")), _e("tr", null, _e("td", null, "Xenon"), _e("td", null, "$10,000")), _e("tr", null, _e("td", null, "Adam"), _e("td", null, "$15,000")), _e("tr", null, _e("td", null, "Malacher"), _e("td", null, "$20,000")), _e("tr", null, _e("td", null, "Dredge"), _e("td", null, "$30,000")), _e("tr", null, _e("td", null, "Vexor"), _e("td", null, "$50,000")))), _e("p", null, "Auto Slayer (bottom of the menu) re-summons the same boss 3 seconds after a kill, as long as you stay within 40 blocks. The summon cost still applies each time. It unlocks once you reach Slayer Level III on Pollum, Viper, Tinc and Xenon."))
+      body: _e(_F, null, _e("p", null, "Open a boss and press Summon and it spawns on top of you. Each summon costs money, taken from your balance the moment the boss appears. You can only have one of each boss out at a time; the lock clears after 10 minutes so a despawn or stolen kill never traps you."), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Boss"), _e("th", null, "Summon Cost"))), _e("tbody", null, _e("tr", null, _e("td", null, "Pollum"), _e("td", null, "$1,000")), _e("tr", null, _e("td", null, "Viper"), _e("td", null, "$1,500")), _e("tr", null, _e("td", null, "Tinc"), _e("td", null, "$2,000")), _e("tr", null, _e("td", null, "Xenon"), _e("td", null, "$3,000")), _e("tr", null, _e("td", null, "Adam"), _e("td", null, "$5,000")), _e("tr", null, _e("td", null, "Malacher"), _e("td", null, "$7,500")), _e("tr", null, _e("td", null, "Dredge"), _e("td", null, "$10,000")), _e("tr", null, _e("td", null, "Vexor"), _e("td", null, "$15,000")), _e("tr", null, _e("td", null, "Syrax"), _e("td", null, "$20,000")))), _e("p", null, "Auto Slayer (bottom of the menu) re-summons the same boss 3 seconds after a kill, as long as you stay within 40 blocks. The summon cost still applies each time. It unlocks once you reach Slayer Level III on Pollum, Viper, Tinc and Xenon."))
     }, {
       h: 'Public vs Private',
       body: _e(_F, null, _e("p", null, _e("strong", null, "Public"), " is the default. Anyone can hit your boss and players within 30 blocks of the kill share half the per kill XP. You still get the full reward and drops."), _e("p", null, _e("strong", null, "Private"), " blocks all damage from other players, no stolen kills, no shared XP. The toggle applies to every boss at once."))
     }, {
       h: 'XP and Leveling',
-      body: _e(_F, null, _e("p", null, "Each boss has its own XP pool. XP per kill scales from 25 on Pollum up to 95 on Vexor. The pool you need per level is 100, then 225, 510, 1,150 and 2,600, about 4,585 XP to fully master a single boss."), _e("p", null, "When you cross a threshold the requirement is subtracted and your level ticks up, so a kill with leftover XP can chain multiple level ups."))
+      body: _e(_F, null, _e("p", null, "Each boss has its own XP pool and every kill of that boss feeds it. XP per kill scales with the boss, from 25 on Pollum up to 100 on Vexor and 120 on Syrax."), _e("p", null, "The maths works out clean: every boss takes the same number of kills to master, no matter its XP rate. You need 10 kills for Level I, 25 for Level II, 45 for Level III, 70 for Level IV and 100 for Level V. That is 250 kills to fully master a single boss, and 2,250 kills to max all nine."))
+    }, {
+      h: 'Milestone Rewards',
+      body: _e(_F, null, _e("p", null, "Levelling a boss is not just for the menu number. Three of its five levels hand you a one time milestone reward on top of the normal kill drops:"), _e("ul", null, _e("li", null, _e("strong", null, "Level 3"), ", a decorative Slayer Relic unique to that boss. Pure flex, no stats."), _e("li", null, _e("strong", null, "Level 4"), ", that boss's signature weapon, the same prize as its rare kill drop."), _e("li", null, _e("strong", null, "Level 5"), ", a Slayer Trophy plus a permanent perk that never wears off.")), _e("p", null, "The Level 5 perks are always on, even after death:"), _e("table", null, _e("thead", null, _e("tr", null, _e("th", null, "Boss"), _e("th", null, "Permanent Perk"))), _e("tbody", null, _e("tr", null, _e("td", null, "Pollum"), _e("td", null, "Haste I")), _e("tr", null, _e("td", null, "Viper"), _e("td", null, "Night Vision")), _e("tr", null, _e("td", null, "Tinc"), _e("td", null, "Fire Resistance")), _e("tr", null, _e("td", null, "Xenon"), _e("td", null, "Haste II")), _e("tr", null, _e("td", null, "Adam"), _e("td", null, "Speed I")), _e("tr", null, _e("td", null, "Malacher"), _e("td", null, "Strength I")), _e("tr", null, _e("td", null, "Dredge"), _e("td", null, "Strength II")), _e("tr", null, _e("td", null, "Vexor"), _e("td", null, "+25% Slayer XP from every boss")), _e("tr", null, _e("td", null, "Syrax"), _e("td", null, "Speed II")))), _e("p", null, "Haste from Pollum and Xenon stacks into faster mining, and Vexor's bonus speeds up every future Slayer grind. The perks carry across the whole roster at once."))
     }, {
       h: 'Drops Per Kill',
       body: _e(_F, null, _e("p", null, "Each kill rolls the boss loot table from rarest to most common and the first roll that lands is your one drop for that kill."), _e("p", null, "The ", _e("strong", null, "Plunder"), " custom enchant on your weapon adds a flat 1% per level to each roll (capped at Plunder 10 and no roll can exceed 75%). Higher Plunder pushes you toward the better drops."))
@@ -1193,6 +1304,9 @@ const GUIDES = {
       h: 'Armor Sets',
       body: _e("p", null, "Each boss has its own armor set with three tiers of every piece: helmet, chestplate, leggings and boots. Spend Shards to forge each tier and build out the full set for that dimension's boss.")
     }, {
+      h: 'Set Bonus and Savior',
+      body: _e(_F, null, _e("p", null, "Wearing a full matching four piece boss set gives you bonus damage against that boss only: +5% at Tier 1, +10% at Tier 2 and +15% at Tier 3. A boss weapon whose lore reads \"Deals X% more damage to <boss>\" stacks on top of that. The bonuses only apply to that one boss, so gear up for the boss you are hunting."), _e("p", null, "Boss armor also picks up the Savior enchant automatically while you wear it, cutting the damage that boss's attacks deal to you. There is nothing to toggle, just equip the set."))
+    }, {
       h: 'Miscellaneous',
       body: _e("p", null, "The Miscellaneous section holds everything else a boss can forge, such as crate keys and pet shards. It is paginated and new recipes are added over time.")
     }, {
@@ -1202,19 +1316,16 @@ const GUIDES = {
   },
   'quests': {
     title: 'Quests',
-    intro: 'Rotating weekly challenges plus story driven NPC quests.',
+    intro: 'Story driven NPC quests, tracked in your quest journal.',
     sections: [{
-      h: 'Two Quest Systems',
-      body: _e(_F, null, _e("p", null, "PrimalMines has two separate quest systems: the weekly challenge board you open with ", _e("code", null, "/quests"), " and the story quests handed out by NPCs around the map."), _e("p", null, "Story dialogue runs in your actionbar with a soft bell on each line, so chat never floods. Choice menus open as small chest GUIs and NPCs appear or hide based on your current stage so you always see the one that matters."))
-    }, {
-      h: 'Weekly Quests',
-      body: _e("p", null, "Open ", _e("code", null, "/quests"), " for three rotating challenges that reset every week. Each one tracks a goal like mining a block, winning fights or defeating bosses and pays out XP and cash. Hit the goal, then click to claim.")
+      h: 'How Quests Work',
+      body: _e(_F, null, _e("p", null, "Quests are story chains handed out by NPCs around the map. Story dialogue runs in your actionbar with a soft bell on each line, so chat never floods. Choice menus open as small chest GUIs, and NPCs appear or hide based on your current stage so you always see the one that matters."), _e("p", null, "Open ", _e("code", null, "/quests"), " for your Quest Journal, a read only tracker that lists each quest with its status, the NPC and location, your current step and what to bring next. It does not hand out rewards itself; it just keeps your progress in one place."))
     }, {
       h: 'The Dragon Quest',
       body: _e(_F, null, _e("p", null, "The Dragon Quest is the free rank unlock chain, run entirely by Dragon13215, a terse wandering NPC who makes the rank vouchers himself. Each stage asks for a shopping list of materials and completing it unlocks that rank's voucher in his shop. The voucher still costs server money to buy."), _e("p", null, _e("strong", null, "Endstone intro"), ". Bring 5 Super Enchanted Endstone. He then reveals what he does and hands you the first list."), _e("blockquote", null, "Don't ask questions. I'll explain when you're back."), _e("p", null, _e("strong", null, "Catastro List"), ". 32 Super Enchanted Purpur, voucher paper, a rank pen and $35,000. Reward: the Dragon Sword and the ", _e("strong", null, "Catastro"), " voucher unlocked for $750,000."), _e("p", null, _e("strong", null, "Gladiator List"), " (level 50+). 32 Super Enchanted Glowstone, a rank pen, voucher paper and Gladiator dye. Unlocks the ", _e("strong", null, "Gladiator"), " voucher for $2,500,000."), _e("p", null, _e("strong", null, "Sentinel List"), " (level 100+). 3 Deep Dark Eggs, Sentinel dye, a rank pen and voucher paper. Unlocks the ", _e("strong", null, "Sentinel"), " voucher for $7,500,000."), _e("p", null, _e("strong", null, "Paragon List"), " (level 200+). An Omega Pickaxe, 2 voucher paper, 2 rank pens, Paragon dye, 32 Ultra Enchanted Primal Ore and $500,000. Unlocks the ", _e("strong", null, "Paragon"), " voucher for $20,000,000."), _e("p", null, "After the last list his shop stays open for life so you can revisit anything you missed."))
     }, {
       h: 'Story Quests',
-      body: _e(_F, null, _e("p", null, "Side quests with full dialogue and named rewards:"), _e("ul", null, _e("li", null, _e("strong", null, "A Rocky Relationship"), " (Cave). Reunite Cat and her husband Tim. A shady merchant demands $50,000 for the stolen gemstones, pay up or fight him. Rewards Tim's custom pickaxe and $10,000."), _e("li", null, _e("strong", null, "Inferno's Debt"), " (Nether). Serve the demon Inferno, duel Hades or betray your way to power. Branching paths pay out big money, a boss pet and a legendary relic."), _e("li", null, _e("strong", null, "Lumberjack"), ". Bring enchanted oak and birch for the LumberJack's Axe (Efficiency 15, Fortune 5, unbreakable)."), _e("li", null, _e("strong", null, "Blacksmith"), ". Bring enchanted diamonds, gold and emeralds for the Forgeborn Blade (Sharpness 12, grants Speed on hit)."), _e("li", null, _e("strong", null, "Lost Kitty"), ". Help an old lady find her cat Mochi for $5,000.")))
+      body: _e(_F, null, _e("p", null, "Side quests with full dialogue and named rewards:"), _e("ul", null, _e("li", null, _e("strong", null, "A Rocky Relationship"), " (Cave). Reunite Cat and her husband Tim. A shady merchant demands $50,000 for the stolen gemstones, pay up or fight him. Rewards Tim's custom pickaxe and $10,000."), _e("li", null, _e("strong", null, "Inferno's Debt"), " (Nether). Serve the demon Inferno, duel Hades or betray your way to power. Branching paths pay out big money, a boss pet and a legendary relic."), _e("li", null, _e("strong", null, "Lumberjack"), ". Bring enchanted oak and birch for the LumberJack's Axe (Efficiency 15, Fortune 5, unbreakable)."), _e("li", null, _e("strong", null, "Blacksmith"), " (Cave). Bring enchanted diamonds, gold and emeralds for the Forgeborn Blade (Sharpness 12, grants Speed on hit)."), _e("li", null, _e("strong", null, "Freya"), " (Overworld farm). Bring Garrick's sister a birch axe and compressed oak to unlock Freya's Forge, the farming tool upgrade shop."), _e("li", null, _e("strong", null, "Lost Cat"), ". Help an old lady find her cat Mochi for $5,000.")))
     }]
   },
   'mining-events': {
@@ -1223,6 +1334,15 @@ const GUIDES = {
     sections: [{
       h: 'How it Works',
       body: _e(_F, null, _e("p", null, "Every hour on the hour a Mining Event begins and runs for 15 minutes. A random block type is chosen and a boss bar shows you the target block, the time left and your personal count."), _e("p", null, "It is not a race to a fixed number, whoever mines the MOST of that block before time runs out wins. The top three miners take the prizes."))
+    }, {
+      h: 'The Prizes',
+      body: _e(_F, null, _e("p", null, "Each of the top three pulls a random reward bundle of cash plus crate keys, so two wins rarely look the same:"), _e("ul", null, _e("li", null, _e("strong", null, "First"), " lands $60,000 to $100,000 plus a top tier key such as a Primal, Immortal, Sentinel, Legendary Pet or Abyss crate."), _e("li", null, _e("strong", null, "Second"), " lands $35,000 to $50,000 plus mid tier keys like Abyss, MVP, Rare Pet or an Aether and VIP pair."), _e("li", null, _e("strong", null, "Third"), " lands $15,000 to $25,000 plus an Aether, End, Nether or Uncommon Pet key.")))
+    }, {
+      h: 'Player Count Milestones',
+      body: _e(_F, null, _e("p", null, "The busier the server, the more everyone wins. When the online player count hits 10, 20, 30 or 40, every player online instantly gets a free crate key, rolled from a pool that gets better at higher counts."), _e("p", null, "At 10 players you might pull a Rare Pet, Nether or Party key; at 40 the pool includes Primal, Immortal and Legendary Pet keys. A short warning fires as the next milestone approaches, so it pays to bring friends on."))
+    }, {
+      h: 'Seasonal Boss Events',
+      body: _e(_F, null, _e("p", null, "On top of the hourly grind, the staff run limited time seasonal boss events. The Summer event drops two community bosses, ", _e("strong", null, "81hp_"), " and ", _e("strong", null, "shamil_on_speed"), ", into the world for everyone to gang up on."), _e("p", null, "Whoever lands the final blow claims that boss's exclusive pet. On top of that, one random player who helped fight it wins a seasonal trophy, a Sunscorched Ember from 81hp_ or a Charged Speedrune from shamil, which are meant to be combined into a Special Crate Key."))
     }]
   },
   'economy': {
@@ -1239,29 +1359,24 @@ const GUIDES = {
       body: _e("p", null, "Cash notes are how players trade money by hand without ", _e("code", null, "/pay"), ". They are also perfect for secret off the books trades. Drop them in trade chests, hand them across the table or leave them as gifts. The note is the receipt.")
     }]
   },
-  'keys-shop': {
-    title: 'Keys Shop',
-    intro: 'Spend in game cash on crate keys. Open with /keys.',
+  'keys-crates': {
+    title: 'Keys and Crates',
+    intro: 'Buy crate keys with cash, then open crates for randomized rewards.',
     sections: [{
-      h: 'How it Works',
+      h: 'Buying Keys',
       body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/keys"), " to open the cash for keys exchange. Left click an item to buy one; right click for a bulk menu (2, 4, 16, 32 or 64 at a time). Keys are delivered straight to your crates."), _e("p", null, "Prices are listed on each item. They are intentionally steep, keys are a money sink for the late game."))
     }, {
       h: 'Dimension and Rank Keys',
       body: _e(_F, null, _e("p", null, _e("strong", null, "Dimension keys")), _e("ul", null, _e("li", null, "Overworld $7,500"), _e("li", null, "Cave $12,500"), _e("li", null, "Nether $20,000"), _e("li", null, "End $45,000"), _e("li", null, "Aether $100,000"), _e("li", null, "Abyss $500,000")), _e("p", null, _e("strong", null, "Free rank keys")), _e("ul", null, _e("li", null, "Catastro $200,000"), _e("li", null, "Gladiator $500,000"), _e("li", null, "Sentinel $1,000,000"), _e("li", null, "Paragon $2,000,000")), _e("p", null, _e("strong", null, "Paid rank keys")), _e("ul", null, _e("li", null, "VIP $100,000"), _e("li", null, "MVP $250,000"), _e("li", null, "Celestial $500,000"), _e("li", null, "Aethereal $750,000"), _e("li", null, "Immortal $1,000,000"), _e("li", null, "Primal $2,500,000")))
     }, {
       h: 'Pet and Themed Keys',
-      body: _e(_F, null, _e("p", null, _e("strong", null, "Pet rarity keys")), _e("ul", null, _e("li", null, "Common Pet $25,000"), _e("li", null, "Uncommon Pet $50,000"), _e("li", null, "Rare Pet $250,000"), _e("li", null, "Epic Pet $750,000"), _e("li", null, "Legendary Pet $1,500,000"), _e("li", null, "Mythic Pet $5,000,000")), _e("p", null, _e("strong", null, "Themed keys")), _e("ul", null, _e("li", null, "Party $2,500"), _e("li", null, "Compressor Voucher $1,500,000"), _e("li", null, "Chatcolor $2,500,000")))
-    }]
-  },
-  'crates': {
-    title: 'Crates',
-    intro: 'Open keys for randomized rewards.',
-    sections: [{
+      body: _e(_F, null, _e("p", null, _e("strong", null, "Pet rarity keys")), _e("ul", null, _e("li", null, "Common Pet $25,000"), _e("li", null, "Uncommon Pet $50,000"), _e("li", null, "Rare Pet $250,000"), _e("li", null, "Epic Pet $750,000"), _e("li", null, "Legendary Pet $1,500,000"), _e("li", null, "Mythic Pet $5,000,000")), _e("p", null, _e("strong", null, "Utility keys")), _e("ul", null, _e("li", null, "Party $25,000"), _e("li", null, "Compressor Voucher $1,500,000"), _e("li", null, "Chatcolor $2,500,000")))
+    }, {
       h: 'Opening Crates',
       body: _e(_F, null, _e("p", null, "Crate blocks stand around spawn, each with a floating hologram. Right click a crate while holding its matching key to open it and play the reveal animation. Left click to preview every possible reward and its odds first."), _e("p", null, "If a key does not fit in your inventory, grab it later with ", _e("code", null, "/claimkeys"), "."))
     }, {
       h: 'Crate Types',
-      body: _e(_F, null, _e("p", null, "There are over 30 crates, grouped by theme:"), _e("ul", null, _e("li", null, _e("strong", null, "Dimension"), ", Overworld through Abyss, full of that dimension's blocks and consumables"), _e("li", null, _e("strong", null, "Rank"), ", Catastro to Paragon and VIP to Primal"), _e("li", null, _e("strong", null, "Pet rarity"), ", Common to Mythic, each giving a level 1 pet, plus a Special pet crate"), _e("li", null, _e("strong", null, "Themed"), ", Party, Chatcolor, Compressor Voucher and Vote"), _e("li", null, _e("strong", null, "Time based"), ", Daily, Weekly and Monthly")))
+      body: _e(_F, null, _e("p", null, "There are over 30 crates, grouped by theme:"), _e("ul", null, _e("li", null, _e("strong", null, "Dimension"), ", Overworld through Abyss, full of that dimension's blocks and consumables"), _e("li", null, _e("strong", null, "Rank"), ", Catastro to Paragon and VIP to Primal"), _e("li", null, _e("strong", null, "Pet rarity"), ", Common to Mythic, each giving a level 1 pet, plus a Special pet crate"), _e("li", null, _e("strong", null, "Utility"), ", Party, Chatcolor, Compressor Voucher and Vote"), _e("li", null, _e("strong", null, "Time based"), ", Daily, Weekly and Monthly")))
     }]
   },
   'shops': {
@@ -1269,13 +1384,13 @@ const GUIDES = {
     intro: 'Buy gear from mine shops and trade with other players.',
     sections: [{
       h: 'Mine Shops',
-      body: _e(_F, null, _e("p", null, "Open the shop for the mine you are standing in with ", _e("code", null, "/mineshop"), " (or ", _e("code", null, "/shop"), ") or by clicking the shop NPC in the mine. Each shop is paged into Armor, Pickaxes, Swords and Compressors."), _e("p", null, "Mine shops are barter shops: you trade items for items, for example, handing over enchanted blocks to receive the next pickaxe tier. Overflow goes safely to your stash."))
+      body: _e(_F, null, _e("p", null, "Open the shop for the mine you are standing in by clicking the shop NPC in the mine. Each shop is split into Tools and Weapons, Armor and Compressor sections."), _e("p", null, "Mine shops are barter shops: you trade items for items, for example, handing over enchanted blocks or logs to receive the next pickaxe tier. Overflow goes safely to your stash."))
     }, {
       h: 'Auction House',
       body: _e("p", null, "Type ", _e("code", null, "/ah"), " to open the Auction House, where players list items for sale to the whole server and buy what others have posted. It is the main way to trade rare gear and pets for cash.")
     }, {
       h: 'Direct Trades',
-      body: _e("p", null, "For a face to face swap, use the trade system to safely exchange items and money directly with another player, so neither side can scam the other.")
+      body: _e("p", null, "For a face to face swap, type ", _e("code", null, "/trade <player>"), " to send a trade request. Once they accept, a safe two sided trade window opens so you can exchange items and money directly, and both players must confirm before anything changes hands, so neither side can scam the other.")
     }]
   },
   'coinflip': {
@@ -1336,7 +1451,7 @@ const GUIDES = {
       body: _e("p", null, "Type ", _e("code", null, "/options"), " (or ", _e("code", null, "/settings"), "). Lime panes mean on, red panes mean off. Click any pane to flip it.")
     }, {
       h: 'What You Can Toggle',
-      body: _e("ul", null, _e("li", null, _e("strong", null, "PvP"), " on or off, off makes you immune to other players' damage"), _e("li", null, _e("strong", null, "Full inventory warning")), _e("li", null, _e("strong", null, "Server broadcasts")), _e("li", null, _e("strong", null, "Item drops")), _e("li", null, _e("strong", null, "Chat game messages")), _e("li", null, _e("strong", null, "Prestige messages")), _e("li", null, _e("strong", null, "Auto Slayer spawn effects")))
+      body: _e("ul", null, _e("li", null, _e("strong", null, "PvP"), " on or off, off makes you immune to other players' damage"), _e("li", null, _e("strong", null, "Full inventory warning")), _e("li", null, _e("strong", null, "Server broadcasts")), _e("li", null, _e("strong", null, "Item drops")), _e("li", null, _e("strong", null, "Chat game messages")), _e("li", null, _e("strong", null, "Prestige messages")), _e("li", null, _e("strong", null, "Auto Slayer spawn effects")), _e("li", null, _e("strong", null, "Player stats on click"), ", right click a player to view their stats"))
     }, {
       h: 'Settings Stick',
       body: _e("p", null, "Every toggle saves to your account and carries across sessions. Turning off broadcasts mutes them for you; turning off PvP makes you untouchable to other players.")
@@ -1393,8 +1508,14 @@ const GUIDES = {
     title: 'Custom Enchants',
     intro: 'Custom enchants live alongside the vanilla list.',
     sections: [{
-      h: 'The Enchants',
-      body: _e("ul", null, _e("li", null, _e("strong", null, "Monopoly"), ", more money per block broken. The top mining picks carry it at high levels."), _e("li", null, _e("strong", null, "Plunder"), ", raises your boss drop rolls by 1% per level (up to Plunder 10). Stack it on your boss weapon before hunting."), _e("li", null, _e("strong", null, "Trench"), ", breaks a vein of extra blocks per swing, each routed through your full Fortune and compression."))
+      h: 'Mining Enchants',
+      body: _e("ul", null, _e("li", null, _e("strong", null, "Monopoly"), ", more money per block broken. The top mining picks carry it at high levels."), _e("li", null, _e("strong", null, "Trench"), ", breaks a wall of extra blocks per swing, each routed through your full Fortune and compression. Trench I clears 2 extra blocks and each level adds 3 more, out to 6 blocks."), _e("li", null, _e("strong", null, "Mending"), ", on a pickaxe this pays you a little extra cash on every block, equal to its Mending level plus one. A second income stream baked into the tool."))
+    }, {
+      h: 'Combat Enchants',
+      body: _e("ul", null, _e("li", null, _e("strong", null, "Plunder"), ", raises your boss drop rolls by 1% per level, up to Plunder 10. Stack it on your boss weapon before hunting."), _e("li", null, _e("strong", null, "Blindness"), ", an armor enchant. When a player hits you it has a chance to blind them for 3 seconds, from 10% at level I up to 50% at level V."))
+    }, {
+      h: 'Special Weapons',
+      body: _e(_F, null, _e("p", null, "Some named weapons carry their own built in effect rather than a stackable enchant:"), _e("ul", null, _e("li", null, _e("strong", null, "SoulReaper"), ", heals you for 15% of the damage you deal on every hit."), _e("li", null, _e("strong", null, "Warlord's Axe"), ", banks a stack for every player you kill. Each stack adds damage, up to +5 at 20 stacks, shown on your actionbar. Dying resets the count.")))
     }]
   },
   'discord-link': {
@@ -1402,7 +1523,7 @@ const GUIDES = {
     intro: 'Connect Minecraft and Discord. Get rewarded.',
     sections: [{
       h: 'How to Link',
-      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/link"), " in game for a 6 character code (it expires after 10 minutes). Open the PrimalMines Discord, submit the code, then rejoin the server."), _e("p", null, "The first time you link you receive $10,000 plus 3 Rare Pet Keys."))
+      body: _e(_F, null, _e("p", null, "Type ", _e("code", null, "/link"), " in game for a 5 digit code. Open the PrimalMines Discord, hit Link Account and submit the code. The code is single use, so it only works once."), _e("p", null, "The first time you link you receive $10,000 plus 3 Rare Pet Keys, and your in game rank syncs to Discord."))
     }, {
       h: 'Unlinking',
       body: _e("p", null, "Type ", _e("code", null, "/unlink"), " to remove the link. You can re-link any time, but the first time reward only pays out once.")
@@ -1424,13 +1545,13 @@ const GUIDES = {
     intro: 'Every player facing command in one place.',
     sections: [{
       h: 'Core',
-      body: _e("ul", null, _e("li", null, _e("code", null, "/menu"), " or ", _e("code", null, "/m"), " the main menu"), _e("li", null, _e("code", null, "/help"), " the help GUI"), _e("li", null, _e("code", null, "/prestige"), " or ", _e("code", null, "/rebirth"), " prestige GUI"), _e("li", null, _e("code", null, "/skills"), " skills menu"), _e("li", null, _e("code", null, "/quests"), " weekly challenges"), _e("li", null, _e("code", null, "/daily"), " daily rewards"), _e("li", null, _e("code", null, "/playtimerewards"), " playtime milestones"), _e("li", null, _e("code", null, "/stats"), " your stats or another player's"), _e("li", null, _e("code", null, "/balance"), " or ", _e("code", null, "/bal"), " your balance"), _e("li", null, _e("code", null, "/playtime"), " your playtime"))
+      body: _e("ul", null, _e("li", null, _e("code", null, "/menu"), " or ", _e("code", null, "/m"), " the main menu"), _e("li", null, _e("code", null, "/help"), " the help GUI"), _e("li", null, _e("code", null, "/prestige"), " or ", _e("code", null, "/rebirth"), " prestige GUI"), _e("li", null, _e("code", null, "/skills"), " skills menu"), _e("li", null, _e("code", null, "/quests"), " quest journal"), _e("li", null, _e("code", null, "/daily"), " daily rewards"), _e("li", null, _e("code", null, "/playtimerewards"), " playtime milestones"), _e("li", null, _e("code", null, "/stats"), " your stats or another player's"), _e("li", null, _e("code", null, "/balance"), " or ", _e("code", null, "/bal"), " your balance"), _e("li", null, _e("code", null, "/playtime"), " your playtime"))
     }, {
       h: 'Economy and Items',
-      body: _e("ul", null, _e("li", null, _e("code", null, "/convert"), " turn balance into cash notes"), _e("li", null, _e("code", null, "/pay"), " send money to a player"), _e("li", null, _e("code", null, "/keys"), " the keys shop"), _e("li", null, _e("code", null, "/claimkeys"), " claim overflow keys"), _e("li", null, _e("code", null, "/mineshop"), " or ", _e("code", null, "/shop"), " the current mine's shop"), _e("li", null, _e("code", null, "/ah"), " the auction house"), _e("li", null, _e("code", null, "/cf"), " coinflip"), _e("li", null, _e("code", null, "/stash"), " and ", _e("code", null, "/pickupstash"), " your stash"), _e("li", null, _e("code", null, "/pv"), " player vaults"))
+      body: _e("ul", null, _e("li", null, _e("code", null, "/convert"), " turn balance into cash notes"), _e("li", null, _e("code", null, "/pay"), " send money to a player"), _e("li", null, _e("code", null, "/keys"), " the keys shop"), _e("li", null, _e("code", null, "/claimkeys"), " claim overflow keys"), _e("li", null, _e("code", null, "/mineshop"), " or ", _e("code", null, "/shop"), " the current mine's shop"), _e("li", null, _e("code", null, "/ah"), " the auction house"), _e("li", null, _e("code", null, "/trade <player>"), " trade with a player"), _e("li", null, _e("code", null, "/cf"), " coinflip"), _e("li", null, _e("code", null, "/stash"), " and ", _e("code", null, "/pickupstash"), " your stash"), _e("li", null, _e("code", null, "/pv"), " player vaults"))
     }, {
       h: 'Bosses, Pets and Mining',
-      body: _e("ul", null, _e("li", null, _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " the slayer menu"), _e("li", null, _e("code", null, "/pets"), " your pet menu"), _e("li", null, _e("code", null, "/petshop"), " the pet shop"), _e("li", null, _e("code", null, "/compressors"), " the compressor menu"), _e("li", null, _e("code", null, "/boost"), " the booster menu"))
+      body: _e("ul", null, _e("li", null, _e("code", null, "/slayer"), " or ", _e("code", null, "/bosses"), " the slayer menu"), _e("li", null, _e("code", null, "/pets"), " your pet menu"), _e("li", null, _e("code", null, "/petshop"), " the pet shop"), _e("li", null, _e("code", null, "/talismanshop"), " talismans and bag slots"), _e("li", null, _e("code", null, "/compressors"), " the compressor menu"), _e("li", null, _e("code", null, "/boost"), " the booster menu"))
     }, {
       h: 'Cosmetics and Settings',
       body: _e("ul", null, _e("li", null, _e("code", null, "/tags"), " your tags"), _e("li", null, _e("code", null, "/chatcolor"), " or ", _e("code", null, "/color"), " your chat color"), _e("li", null, _e("code", null, "/prefix"), " recolor your prefix (Immortal+)"), _e("li", null, _e("code", null, "/options"), " or ", _e("code", null, "/settings"), " toggle settings"), _e("li", null, _e("code", null, "/offhand"), " swap held item to off hand"), _e("li", null, _e("code", null, "/drop"), " toggle item dropping"))
@@ -1909,7 +2030,7 @@ function Features() {
   }, {
     icon: 'Trophy',
     title: 'Slayer System',
-    body: 'Eight bosses. Summon, kill, level. Master each one to unlock a permanent perk that stacks across the whole roster.'
+    body: 'Nine bosses, five levels each. Earn a relic, a signature weapon and a permanent buff as you master every one.'
   }, {
     icon: 'Book',
     title: 'Real Quests',
@@ -1917,15 +2038,23 @@ function Features() {
   }, {
     icon: 'Bolt',
     title: 'Custom Enchants',
-    body: 'Monopoly stacks money per block. Plunder stacks your odds on rare boss drops. Both tuned to scale with prestige.'
+    body: 'Monopoly stacks money per block. Plunder pushes your boss drop rolls toward the rare tiers. Trench rips a whole vein per swing, through full Fortune.'
   }, {
     icon: 'Paw',
-    title: '124 Pets',
+    title: '138 Pets',
     body: 'Seven rarities. Each pet has an ability and a passive stat boost. Some drop only from bosses.'
   }, {
     icon: 'Pickaxe',
     title: 'Custom Fortune',
     body: 'Handles Fortune 1000 and beyond plus autocompression that empties your inventory before it overflows.'
+  }, {
+    icon: 'Gem',
+    title: 'Talismans',
+    body: 'Around 30 passive charms you carry in a dedicated bag. Stack drops, XP, money, Fortune and boss damage all at once.'
+  }, {
+    icon: 'Star',
+    title: 'Farming',
+    body: 'A whole second grind. Harvest crops into your farm bag, earn Farm Coins and chase the Harvesting and Tiller hoe enchants.'
   }, {
     icon: 'Sparkle',
     title: 'Hourly Events',
@@ -2079,10 +2208,10 @@ function LootSection({
   }, /*#__PURE__*/React.createElement(SectionHead, {
     num: "02",
     label: "// SLAYER",
-    title: "Eight bosses.",
+    title: "Nine bosses.",
     italic: "Five levels each.",
     side: "02 / SLAYER",
-    blurb: "Slayer is the new boss system. Open /slayer to see your progression across all 8 bosses. Summon. Kill. Level. Master each one for a permanent perk."
+    blurb: "Open /slayer to track your progression across all 9 bosses. Summon. Kill. Level. Each kill rolls one drop, and mastering a boss hands you a relic, a signature weapon and a permanent buff."
   }), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-12 gap-6 lg:gap-10 reveal"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2138,19 +2267,39 @@ function LootSection({
     }
   }, /*#__PURE__*/React.createElement("span", {
     className: "term-pct"
-  }, "80%"), /*#__PURE__*/React.createElement("span", {
+  }, "0.1%"), /*#__PURE__*/React.createElement("span", {
     style: {
       flex: 1
     }
-  }, "1x Pollum Shard"), /*#__PURE__*/React.createElement("span", {
-    className: "term-tag-common",
+  }, "1x Pollum Pet"), /*#__PURE__*/React.createElement("span", {
+    className: "term-tag-myth",
     style: {
       fontSize: '0.72rem',
       fontWeight: 700,
       letterSpacing: '0.1em',
       textTransform: 'uppercase'
     }
-  }, "common")), /*#__PURE__*/React.createElement("div", {
+  }, "mythic")), /*#__PURE__*/React.createElement("div", {
+    className: "term-line",
+    style: {
+      display: 'flex',
+      alignItems: 'center'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "term-pct"
+  }, "3%"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      flex: 1
+    }
+  }, "1x Pollum's Axe"), /*#__PURE__*/React.createElement("span", {
+    className: "term-tag-leg",
+    style: {
+      fontSize: '0.72rem',
+      fontWeight: 700,
+      letterSpacing: '0.1em',
+      textTransform: 'uppercase'
+    }
+  }, "legendary")), /*#__PURE__*/React.createElement("div", {
     className: "term-line",
     style: {
       display: 'flex',
@@ -2198,19 +2347,19 @@ function LootSection({
     }
   }, /*#__PURE__*/React.createElement("span", {
     className: "term-pct"
-  }, "10%"), /*#__PURE__*/React.createElement("span", {
+  }, "80%"), /*#__PURE__*/React.createElement("span", {
     style: {
       flex: 1
     }
-  }, "1x Pollum's Axe"), /*#__PURE__*/React.createElement("span", {
-    className: "term-tag-leg",
+  }, "1x Pollum Shard"), /*#__PURE__*/React.createElement("span", {
+    className: "term-tag-common",
     style: {
       fontSize: '0.72rem',
       fontWeight: 700,
       letterSpacing: '0.1em',
       textTransform: 'uppercase'
     }
-  }, "legendary")), /*#__PURE__*/React.createElement("div", {
+  }, "common")), /*#__PURE__*/React.createElement("div", {
     style: {
       height: '0.6rem'
     }
@@ -2223,7 +2372,7 @@ function LootSection({
     style: {
       color: '#a5b6a8'
     }
-  }, "// 08 BOSSES \xB7 40 LEVELS"), /*#__PURE__*/React.createElement("h3", {
+  }, "// 09 BOSSES \xB7 45 LEVELS"), /*#__PURE__*/React.createElement("h3", {
     className: "editorial mt-2",
     style: {
       fontSize: '2.4rem',
@@ -2235,7 +2384,7 @@ function LootSection({
     style: {
       color: '#3dff5b'
     }
-  }, "Adam. Malacher. Dredge. Vexor.")), /*#__PURE__*/React.createElement("p", {
+  }, "Adam. Malacher. Dredge. Vexor. Syrax.")), /*#__PURE__*/React.createElement("p", {
     className: "mt-5",
     style: {
       color: '#b3c7b7',
@@ -2267,7 +2416,7 @@ function PetPeek({
   onNavigate
 }) {
   const featured = useMemo(() => {
-    return ['Cosmic Dragon', 'Frost Wyrm', '81hp_', 'Kasane Teto', 'King Midas', 'Businessman', 'Storm Drake', 'Eclipse Dragon'].map(n => PETS.find(p => p.name === n)).filter(Boolean);
+    return ['Cosmic Dragon', 'Frost Wyrm', '81hp_', 'Syrax', 'King Midas', 'Businessman', 'Storm Drake', 'Eclipse Dragon'].map(n => PETS.find(p => p.name === n)).filter(Boolean);
   }, []);
   return /*#__PURE__*/React.createElement("section", {
     className: "py-24 lg:py-32 relative"
@@ -2299,7 +2448,7 @@ function PetPeek({
   }, /*#__PURE__*/React.createElement("button", {
     onClick: () => onNavigate('guides'),
     className: "btn btn-acid"
-  }, "Browse all 124 pets ", /*#__PURE__*/React.createElement(Icon.Arrow, {
+  }, "Browse all 138 pets ", /*#__PURE__*/React.createElement(Icon.Arrow, {
     className: "w-3.5 h-3.5"
   })))));
 }
@@ -2310,22 +2459,22 @@ function Ranks() {
     name: 'Catastro',
     color: '#a06fff',
     glyph: 'C',
-    body: 'Starter rank. Base permissions.'
+    body: 'The first rung. 2 vaults, 1 home, white chat.'
   }, {
     name: 'Gladiator',
     color: '#ff9e3d',
     glyph: 'G',
-    body: 'Autocompress unlocks the grind.'
+    body: '/autocompress. 3 vaults, 2 homes.'
   }, {
     name: 'Sentinel',
     color: '#4abdf0',
     glyph: 'S',
-    body: 'More vaults. More homes. Particle trail.'
+    body: '/autocompress and /nick. 4 vaults, 3 homes.'
   }, {
     name: 'Paragon',
     color: '#ff5a5a',
     glyph: 'P',
-    body: 'Supercompress. Booster activation.'
+    body: '/supercompress. 5 vaults, 4 homes.'
   }];
   const paid = [{
     name: 'VIP',
